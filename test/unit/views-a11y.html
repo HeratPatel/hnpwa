@@ -1,13 +1,3 @@
-<!--
-@license
-Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,30 +15,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../../node_modules/wct-browser-legacy/browser.js"></script>
 
     <!-- Import the element to test -->
-    <script type="module" src="../../src/components/my-view1.js"></script>
-    <script type="module" src="../../src/components/my-view2.js"></script>
-    <script type="module" src="../../src/components/my-view3.js"></script>
-    <script type="module" src="../../src/components/my-view404.js"></script>
+    <script type="module" src="../../src/pages/welcome/index.js"></script>
+    <script type="module" src="../../src/pages/counter/index.js"></script>
+    <script type="module" src="../../src/pages/shoppingCart/index.js"></script>
+    <script type="module" src="../../src/pages/404/index.js"></script>
   </head>
   <body>
-    <test-fixture id="view1">
+    <test-fixture id="welcome">
       <template>
-        <my-view1 active></my-view1>
+        <welcome-page active></welcome-page>
       </template>
     </test-fixture>
-    <test-fixture id="view2">
+    <test-fixture id="counter">
       <template>
-        <my-view2 active></my-view2>
+        <counter-page active></counter-page>
       </template>
     </test-fixture>
-    <test-fixture id="view3">
+    <test-fixture id="shoppingCart">
       <template>
-        <my-view3 active></my-view3>
+        <shopping-cart active></shopping-cart>
       </template>
     </test-fixture>
-    <test-fixture id="view404">
+    <test-fixture id="404">
       <template>
-        <my-view404 active></my-view404>
+        <page-404 active></page-404>
       </template>
     </test-fixture>
 
@@ -57,23 +47,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       import {axeReport} from 'pwa-helpers/axe-report.js';
 
       suite('views a11y tests', function() {
-        test('my-view1', function() {
-          const el = fixture('view1');
+        test('welcome', function() {
+          const el = fixture('welcome');
           return axeReport(el);
         });
 
-        test('my-view2', function() {
-          const el = fixture('view2');
+        test('counter', function() {
+          const el = fixture('counter');
           return axeReport(el);
         });
 
-        test('my-view3', function() {
-          const el = fixture('view3');
+        test('shoppingCart', function() {
+          const el = fixture('shoppingCart');
           return axeReport(el);
         });
 
-        test('my-view404', function() {
-          const el = fixture('view404');
+        test('page-404', function() {
+          const el = fixture('404');
           return axeReport(el);
         });
       });

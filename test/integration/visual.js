@@ -1,13 +1,3 @@
-/**
-@license
-Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
-*/
-
 const puppeteer = require('puppeteer');
 const expect = require('chai').expect;
 const {startServer} = require('polyserve');
@@ -55,14 +45,14 @@ describe('👀 page screenshots are correct', function() {
     it('/index.html', async function() {
       return takeAndCompareScreenshot(page, '', 'wide');
     });
-    it('/view1', async function() {
-      return takeAndCompareScreenshot(page, 'view1', 'wide');
+    it('/welcome', async function() {
+      return takeAndCompareScreenshot(page, 'welcome', 'wide');
     });
-    it('/view2', async function() {
-      return takeAndCompareScreenshot(page, 'view2', 'wide');
+    it('/counter', async function() {
+      return takeAndCompareScreenshot(page, 'counter', 'wide');
     });
-    it('/view3', async function() {
-      return takeAndCompareScreenshot(page, 'view3', 'wide');
+    it('/shoppingCart', async function() {
+      return takeAndCompareScreenshot(page, 'shoppingCart', 'wide');
     });
     it('/404', async function() {
       return takeAndCompareScreenshot(page, 'batmanNotAView', 'wide');
@@ -77,14 +67,14 @@ describe('👀 page screenshots are correct', function() {
     it('/index.html', async function() {
       return takeAndCompareScreenshot(page, '', 'narrow');
     });
-    it('/view1', async function() {
-      return takeAndCompareScreenshot(page, 'view1', 'narrow');
+    it('/welcome', async function() {
+      return takeAndCompareScreenshot(page, 'welcome', 'narrow');
     });
-    it('/view2', async function() {
-      return takeAndCompareScreenshot(page, 'view2', 'narrow');
+    it('/counter', async function() {
+      return takeAndCompareScreenshot(page, 'counter', 'narrow');
     });
-    it('/view3', async function() {
-      return takeAndCompareScreenshot(page, 'view3', 'narrow');
+    it('/shoppingCart', async function() {
+      return takeAndCompareScreenshot(page, 'shoppingCart', 'narrow');
     });
     it('/404', async function() {
       return takeAndCompareScreenshot(page, 'batmanNotAView', 'narrow');

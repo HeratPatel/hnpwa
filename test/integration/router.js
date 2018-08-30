@@ -1,13 +1,3 @@
-/**
-@license
-Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
-*/
-
 const puppeteer = require('puppeteer');
 const expect = require('chai').expect;
 const {startServer} = require('polyserve');
@@ -34,9 +24,9 @@ describe('routing tests', function() {
     await page.goto(`${appUrl}`);
     await page.waitForSelector('my-app', {visible: true});
 
-    await testNavigation(page, 'view2', 'View Two');
-    await testNavigation(page, 'view3', 'View Three');
-    await testNavigation(page, 'view1', 'View One');
+    await testNavigation(page, 'counter', 'View Two');
+    await testNavigation(page, 'shoppingCart', 'View Three');
+    await testNavigation(page, 'welcome', 'View One');
   });
 
   it('the page selector switches pages in a different way', async function() {
@@ -59,9 +49,9 @@ describe('routing tests', function() {
       console.log(window.deepQuerySelector);
     });
 
-    await testNavigationInADifferentWay(page, 'view2', 'View Two');
-    await testNavigationInADifferentWay(page, 'view3', 'View Three');
-    await testNavigationInADifferentWay(page, 'view1', 'View One');
+    await testNavigationInADifferentWay(page, 'counter', 'View Two');
+    await testNavigationInADifferentWay(page, 'shoppingCart', 'View Three');
+    await testNavigationInADifferentWay(page, 'welcome', 'View One');
   });
 });
 

@@ -1,24 +1,10 @@
 {
   "/": {
-    "src/components/my-app.js": {
+    "src/index.js": {
       "type": "script",
       "weight": 1
     },
-    "src/components/my-view1.js": {
-      "type": "script",
-      "weight": 1
-    },
-    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
-      "type": "script",
-      "weight": 1
-    }
-  },
-  "/view1": {
-    "src/components/my-app.js": {
-      "type": "script",
-      "weight": 1
-    },
-    "src/components/my-view1.js": {
+    "src/pages/welcome/index.js": {
       "type": "script",
       "weight": 1
     },
@@ -27,12 +13,12 @@
       "weight": 1
     }
   },
-  "/view2": {
-    "src/components/my-app.js": {
+  "/welcome": {
+    "src/index.js": {
       "type": "script",
       "weight": 1
     },
-    "src/components/my-view2.js": {
+    "src/pages/welcome/index.js": {
       "type": "script",
       "weight": 1
     },
@@ -41,12 +27,26 @@
       "weight": 1
     }
   },
-  "/view3": {
-    "src/components/my-app.js": {
+  "/counter": {
+    "src/index.js": {
       "type": "script",
       "weight": 1
     },
-    "src/components/my-view3.js": {
+    "src/pages/counter/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/shoppingCart": {
+    "src/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/pages/shoppingCart/index.js": {
       "type": "script",
       "weight": 1
     },
