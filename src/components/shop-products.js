@@ -5,7 +5,7 @@ import { connect } from 'pwa-helpers/connect-mixin.js';
 import { store } from '../store.js';
 
 // These are the elements needed by this element.
-import './shop-item.js';
+import './shop-items';
 
 // These are the actions needed by this element.
 import { getAllProducts, addToCart } from '../actions/shop.js';
@@ -27,7 +27,7 @@ class ShopProducts extends connect(store)(LitElement) {
         const item = _products[key];
         return html`
           <div>
-            <shop-item name="${item.title}" amount="${item.inventory}" price="${item.price}"></shop-item>
+            <shop-items name="${item.title}" amount="${item.inventory}" price="${item.price}"></shop-items>
             <button
                 disabled="${item.inventory === 0}"
                 on-click="${(e) => store.dispatch(addToCart(e.currentTarget.dataset['index']))}"
