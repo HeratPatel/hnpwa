@@ -29,7 +29,7 @@ export class ShopProducts extends connect(store)(LitElement) {
         ${ShopProductsStyles}
         ${ButtonStyles}
         <!-- Content -->
-        ${Object(products).map((key) => {
+        ${Object.keys(products).map((key) => {
             const item = products[key];
             return html`
                 <div>
