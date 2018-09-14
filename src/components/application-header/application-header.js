@@ -30,6 +30,7 @@ export class Header extends connect(store)(LitElement) {
 
     _render({ appTitle, currentPage, isDrawerOpened }) {
         return html`
+        <!-- Styles -->
       ${HeaderStyles}
 
     <!-- Header -->
@@ -42,12 +43,12 @@ export class Header extends connect(store)(LitElement) {
 
       <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">        
-        <a selected?="${currentPage === 'top'}" href="/top">Top</a>
-        <a selected?="${currentPage === 'new'}" href="/new">New</a>
-        <a selected?="${currentPage === 'show'}" href="/show">Show</a>
-        <a selected?="${currentPage === 'ask'}" href="/ask">Ask</a>
-        <a selected?="${currentPage === 'jobs'}" href="/jobs">Jobs</a>
-        <a selected?="${currentPage === 'about'}" href="/about">About</a>
+        <a selected?=${currentPage === 'top'} href="/top">Top</a>
+        <a selected?=${currentPage === 'new'} href="/new">New</a>
+        <a selected?=${currentPage === 'show'} href="/show">Show</a>
+        <a selected?=${currentPage === 'ask'} href="/ask">Ask</a>
+        <a selected?=${currentPage === 'jobs'} href="/jobs">Jobs</a>
+        <a selected?=${currentPage === 'about'} href="/about">About</a>
       </nav>
     </app-header>
 
@@ -56,12 +57,12 @@ export class Header extends connect(store)(LitElement) {
         on-opened-changed="${e =>
         store.dispatch(updateDrawerState(e.target.opened))}">
       <nav class="drawer-list">        
-        <a selected?="${currentPage === 'top'}" href="/top">Top</a>
-        <a selected?="${currentPage === 'new'}" href="/new">New</a>
-        <a selected?="${currentPage === 'show'}" href="/show">Show</a>
-        <a selected?="${currentPage === 'ask'}" href="/ask">Ask</a>
-        <a selected?="${currentPage === 'jobs'}" href="/jobs">Jobs</a>
-        <a selected?="${currentPage === 'about'}" href="/about">About</a>
+        <a selected?=${currentPage === 'top'} href="/top">Top</a>
+        <a selected?=${currentPage === 'new'} href="/new">New</a>
+        <a selected?=${currentPage === 'show'} href="/show">Show</a>
+        <a selected?=${currentPage === 'ask'} href="/ask">Ask</a>
+        <a selected?=${currentPage === 'jobs'} href="/jobs">Jobs</a>
+        <a selected?=${currentPage === 'about'} href="/about">About</a>
       </nav>
     </app-drawer>
     `;
