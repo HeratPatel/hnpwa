@@ -71,9 +71,7 @@ class MyApp extends connect(store)(LitElement) {
     <application-footer></application-footer>
 
     <!-- Snack Bar -->
-    <snack-bar active?="${_snackbarOpened}">You are now ${
-    _offline ? 'offline' : 'online'
-}.</snack-bar>    
+    <snack-bar active?="${_snackbarOpened}">You are now ${_offline ? 'offline' : 'online'}.</snack-bar>    
     `;
     }
 
