@@ -11,15 +11,15 @@ import "./components/application-header";
 import "./components/application-footer";
 
 // redux helpers
-import { store } from "./store";
-import { navigate, updateOffline, updateLayout } from "./actions/app";
+import { store } from "./redux/store";
+import { navigate, updateOffline, updateLayout } from "./redux/app/actions";
 
 class MyApp extends connect(store)(LitElement) {
   _render({ appTitle, _page, _snackbarOpened, _offline }) {
     return html`
     <!-- Styles -->
     <style>
-        :host {        
+      :host {        
         display: block;
         --app-primary-color: #E91E63;
         --app-secondary-color: #293237;
@@ -58,9 +58,12 @@ class MyApp extends connect(store)(LitElement) {
 
     <!-- Main content -->
     <main role="main" class="main-content">      
-      <welcome-page class="page" active?="${_page === "welcome"}"></welcome-page>
-      <counter-page class="page" active?="${_page === "counter"}"></counter-page>
-      <shopping-cart class="page" active?="${_page === "shoppingCart"}"></shopping-cart>
+      <welcome-page class="page" active?="${_page ===
+        "welcome"}"></welcome-page>
+      <counter-page class="page" active?="${_page ===
+        "counter"}"></counter-page>
+      <shopping-cart class="page" active?="${_page ===
+        "shoppingCart"}"></shopping-cart>
       <page-404 class="page" active?="${_page === "404"}"></page-404>      
     </main>
     
@@ -105,7 +108,7 @@ class MyApp extends connect(store)(LitElement) {
       const pageTitle = properties.appTitle + " - " + changeList._page;
       updateMetadata({
         title: pageTitle,
-        description: pageTitle        
+        description: pageTitle
         // This object also takes an image property, that points to an img src.
       });
     }

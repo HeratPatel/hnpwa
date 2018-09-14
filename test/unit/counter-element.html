@@ -1,64 +1,67 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>my-view1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-    <script src="../../node_modules/wct-browser-legacy/browser.js"></script>
+<head>
+  <meta charset="utf-8">
+  <title>my-view1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Import the element to test -->
-    <script type="module" src="../../src/components/counter-element.js"></script>
-  </head>
-  <body>
-    <test-fixture id="basic">
-      <template>
-        <counter-element></counter-element>
-      </template>
-    </test-fixture>
+  <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script src="../../node_modules/wct-browser-legacy/browser.js"></script>
 
-    <script type="module">
-      import 'axe-core/axe.min.js';
-      import {axeReport} from 'pwa-helpers/axe-report.js';
+  <!-- Import the element to test -->
+  <script type="module" src="../../src/components/counter-element/index.js"></script>
+</head>
 
-      suite('counter-element tests', function() {
-        let el;
-        setup(function() {
-          el = fixture('basic');
-        });
+<body>
+  <test-fixture id="basic">
+    <template>
+      <counter-element></counter-element>
+    </template>
+  </test-fixture>
 
-        test('starts empty', function() {
-          assert.equal(el.clicks, '0');
-          assert.equal(el.value, '0');
-        });
+  <script type="module">
+    import 'axe-core/axe.min.js';
+    import { axeReport } from 'pwa-helpers/axe-report.js';
 
-        test('clicking on plus increments', function() {
-          assert.equal(el.clicks, '0');
-          assert.equal(el.value, '0');
-
-          const buttons = el.shadowRoot.querySelectorAll('button');
-          buttons[0].click();
-
-          assert.equal(el.clicks, '1');
-          assert.equal(el.value, '1');
-        });
-
-        test('clicking on minus decrements', function() {
-          assert.equal(el.clicks, '0');
-          assert.equal(el.value, '0');
-
-          const buttons = el.shadowRoot.querySelectorAll('button');
-          buttons[1].click();
-
-          assert.equal(el.clicks, '1');
-          assert.equal(el.value, '-1');
-        });
-
-        test('a11y', function() {
-          return axeReport(el);
-        });
+    suite('counter-element tests', function () {
+      let el;
+      setup(function () {
+        el = fixture('basic');
       });
-    </script>
-  </body>
+
+      test('starts empty', function () {
+        assert.equal(el.clicks, '0');
+        assert.equal(el.value, '0');
+      });
+
+      test('clicking on plus increments', function () {
+        assert.equal(el.clicks, '0');
+        assert.equal(el.value, '0');
+
+        const buttons = el.shadowRoot.querySelectorAll('button');
+        buttons[0].click();
+
+        assert.equal(el.clicks, '1');
+        assert.equal(el.value, '1');
+      });
+
+      test('clicking on minus decrements', function () {
+        assert.equal(el.clicks, '0');
+        assert.equal(el.value, '0');
+
+        const buttons = el.shadowRoot.querySelectorAll('button');
+        buttons[1].click();
+
+        assert.equal(el.clicks, '1');
+        assert.equal(el.value, '-1');
+      });
+
+      test('a11y', function () {
+        return axeReport(el);
+      });
+    });
+  </script>
+</body>
+
 </html>

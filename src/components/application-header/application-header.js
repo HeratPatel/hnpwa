@@ -3,8 +3,8 @@ import { menuIcon } from "../../icons";
 import { HeaderStyles } from "./styles";
 // redux helpers
 import { connect } from "pwa-helpers/connect-mixin";
-import { store } from "../../store";
-import { updateDrawerState } from "../../actions/app";
+import { store } from "../../redux/store";
+import { updateDrawerState } from "../../redux/app/actions";
 // polymer elements
 import "@polymer/app-layout/app-drawer/app-drawer";
 import "@polymer/app-layout/app-header/app-header";
@@ -44,7 +44,8 @@ export class Header extends connect(store)(LitElement) {
       <nav class="toolbar-list">        
         <a selected?="${currentPage === "welcome"}" href="/welcome">Welcome</a>
         <a selected?="${currentPage === "counter"}" href="/counter">Counter</a>
-        <a selected?="${currentPage === "shoppingCart"}" href="/shoppingCart">Shopping Cart</a>
+        <a selected?="${currentPage ===
+          "shoppingCart"}" href="/shoppingCart">Shopping Cart</a>
       </nav>
     </app-header>
 
@@ -55,7 +56,8 @@ export class Header extends connect(store)(LitElement) {
       <nav class="drawer-list">        
         <a selected?="${currentPage === "welcome"}" href="/welcome">Welcome</a>
         <a selected?="${currentPage === "counter"}" href="/counter">Counter</a>
-        <a selected?="${currentPage === "shoppingCart"}" href="/shoppingCart">Shopping Cart</a>
+        <a selected?="${currentPage ===
+          "shoppingCart"}" href="/shoppingCart">Shopping Cart</a>
       </nav>
     </app-drawer>
     `;

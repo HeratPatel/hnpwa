@@ -8,9 +8,9 @@ import "../../components/shop-products";
 import "../../components/shop-cart";
 // redux helpers
 import { connect } from "pwa-helpers/connect-mixin";
-import { store } from "../../store";
-import { checkout } from "../../actions/shop";
-import { cartQuantitySelector } from "../../reducers/shop";
+import { store } from "../../redux/store";
+import { checkout } from "../../redux/shop/actions";
+import { cartQuantitySelector } from "../../redux/shop/reducer";
 
 export class ShoppingCart extends connect(store)(PageViewElement) {
   static get properties() {

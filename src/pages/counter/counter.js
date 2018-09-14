@@ -4,8 +4,8 @@ import { SharedStyles } from "../../styles/shared-styles";
 import "../../components/counter-element";
 // redux helpers
 import { connect } from "pwa-helpers/connect-mixin";
-import { store } from "../../store";
-import { increment, decrement } from "../../actions/counter";
+import { store } from "../../redux/store";
+import { increment, decrement } from "../../redux/counter/actions";
 
 export class Counter extends connect(store)(PageViewElement) {
   static get properties() {
@@ -20,7 +20,7 @@ export class Counter extends connect(store)(PageViewElement) {
     this.value = state.counter.value;
   }
 
-  _render({clicks, value}) {
+  _render({ clicks, value }) {
     return html`
         <!-- Styles -->
         ${SharedStyles}
