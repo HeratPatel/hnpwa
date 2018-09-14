@@ -3,7 +3,7 @@ import { addToCartIcon } from "../../icons";
 import { ShopProductsStyles } from "./styles";
 import "../shop-items";
 // redux helpers
-import { connect } from "pwa-helpers/connect-mixin.js";
+import { connect } from "pwa-helpers/connect-mixin";
 import { store } from "../../store";
 import { getAllProducts, addToCart } from "../../actions/shop";
 import { ButtonStyles } from "../../styles/button-styles";

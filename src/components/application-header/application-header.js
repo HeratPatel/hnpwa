@@ -2,14 +2,14 @@ import { LitElement, html } from "@polymer/lit-element";
 import { menuIcon } from "../../icons";
 import { HeaderStyles } from "./styles";
 // redux helpers
-import { connect } from "pwa-helpers/connect-mixin.js";
+import { connect } from "pwa-helpers/connect-mixin";
 import { store } from "../../store";
 import { updateDrawerState } from "../../actions/app";
 // polymer elements
-import "@polymer/app-layout/app-drawer/app-drawer.js";
-import "@polymer/app-layout/app-header/app-header.js";
-import "@polymer/app-layout/app-toolbar/app-toolbar.js";
-import "@polymer/app-layout/app-scroll-effects/effects/waterfall.js";
+import "@polymer/app-layout/app-drawer/app-drawer";
+import "@polymer/app-layout/app-header/app-header";
+import "@polymer/app-layout/app-toolbar/app-toolbar";
+import "@polymer/app-layout/app-scroll-effects/effects/waterfall";
 
 export class Header extends connect(store)(LitElement) {
   constructor() {

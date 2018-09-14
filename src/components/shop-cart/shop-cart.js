@@ -5,7 +5,7 @@ import { ButtonStyles } from "../../styles/button-styles";
 import { ShopCartStyles } from "./styles";
 import "../shop-items";
 // redux helpers
-import { connect } from 'pwa-helpers/connect-mixin.js';
+import { connect } from 'pwa-helpers/connect-mixin';
 import { store } from "../../store";
 import { removeFromCart } from "../../actions/shop";
 

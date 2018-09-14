@@ -1,10 +1,10 @@
 import { LitElement, html } from "@polymer/lit-element";
-import { setPassiveTouchGestures } from "@polymer/polymer/lib/utils/settings.js";
-import { connect } from "pwa-helpers/connect-mixin.js";
-import { installMediaQueryWatcher } from "pwa-helpers/media-query.js";
-import { installOfflineWatcher } from "pwa-helpers/network.js";
-import { installRouter } from "pwa-helpers/router.js";
-import { updateMetadata } from "pwa-helpers/metadata.js";
+import { setPassiveTouchGestures } from "@polymer/polymer/lib/utils/settings";
+import { connect } from "pwa-helpers/connect-mixin";
+import { installMediaQueryWatcher } from "pwa-helpers/media-query";
+import { installOfflineWatcher } from "pwa-helpers/network";
+import { installRouter } from "pwa-helpers/router";
+import { updateMetadata } from "pwa-helpers/metadata";
 
 import "./components/snack-bar";
 import "./components/application-header";

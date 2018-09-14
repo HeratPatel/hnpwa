@@ -1,12 +1,12 @@
-export const UPDATE_PAGE = 'UPDATE_PAGE';
-export const UPDATE_OFFLINE = 'UPDATE_OFFLINE';
-export const UPDATE_DRAWER_STATE = 'UPDATE_DRAWER_STATE';
-export const OPEN_SNACKBAR = 'OPEN_SNACKBAR';
-export const CLOSE_SNACKBAR = 'CLOSE_SNACKBAR';
+export const UPDATE_PAGE = "UPDATE_PAGE";
+export const UPDATE_OFFLINE = "UPDATE_OFFLINE";
+export const UPDATE_DRAWER_STATE = "UPDATE_DRAWER_STATE";
+export const OPEN_SNACKBAR = "OPEN_SNACKBAR";
+export const CLOSE_SNACKBAR = "CLOSE_SNACKBAR";
 
-export const navigate = (path) => (dispatch) => {
+export const navigate = path => dispatch => {
   // Extract the page name from path.
-  const page = path === '/' ? 'welcome' : path.slice(1);
+  const page = path === "/" ? "welcome" : path.slice(1);
 
   // Any other info you might want to extract from the path (like page type),
   // you can do here
@@ -16,26 +16,26 @@ export const navigate = (path) => (dispatch) => {
   dispatch(updateDrawerState(false));
 };
 
-const loadPage = (page) => (dispatch) => {
-  switch(page) {    
-    case 'welcome':
-      import("../pages/welcome")
+const loadPage = page => dispatch => {
+  switch (page) {
+    case "welcome":
+      import("../pages/welcome/index.js");
       break;
-    case 'counter':
-      import('../pages/counter');
+    case "counter":
+      import("../pages/counter/index.js");
       break;
-    case 'shoppingCart':
-      import('../pages/shoppingCart');
+    case "shoppingCart":
+      import("../pages/shoppingCart/index.js");
       break;
     default:
-      page = '404';
-      import('../pages/404');
+      page = "404";
+      import("../pages/404/index.js");
   }
 
   dispatch(updatePage(page));
 };
 
-const updatePage = (page) => {
+const updatePage = page => {
   return {
     type: UPDATE_PAGE,
     page
@@ -44,16 +44,15 @@ const updatePage = (page) => {
 
 let snackbarTimer;
 
-export const showSnackbar = () => (dispatch) => {
+export const showSnackbar = () => dispatch => {
   dispatch({
     type: OPEN_SNACKBAR
   });
   clearTimeout(snackbarTimer);
-  snackbarTimer = setTimeout(() =>
-    dispatch({ type: CLOSE_SNACKBAR }), 3000);
+  snackbarTimer = setTimeout(() => dispatch({ type: CLOSE_SNACKBAR }), 3000);
 };
 
-export const updateOffline = (offline) => (dispatch, getState) => {
+export const updateOffline = offline => (dispatch, getState) => {
   // Show the snackbar, unless this is the first load of the page.
   if (getState().app.offline !== undefined) {
     dispatch(showSnackbar());
@@ -64,13 +63,13 @@ export const updateOffline = (offline) => (dispatch, getState) => {
   });
 };
 
-export const updateLayout = (wide) => (dispatch, getState) => {
+export const updateLayout = wide => (dispatch, getState) => {
   if (getState().app.drawerOpened) {
     dispatch(updateDrawerState(false));
   }
 };
 
-export const updateDrawerState = (opened) => (dispatch, getState) => {
+export const updateDrawerState = opened => (dispatch, getState) => {
   if (getState().app.drawerOpened !== opened) {
     dispatch({
       type: UPDATE_DRAWER_STATE,
