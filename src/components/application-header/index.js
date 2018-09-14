@@ -1,3 +1,3 @@
-import { Header } from "./application-header";
+import { Header } from './application-header';
 
-window.customElements.define("application-header", Header);
+window.customElements.define('application-header', Header);

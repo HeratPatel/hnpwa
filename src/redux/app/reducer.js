@@ -1,39 +1,39 @@
-import types from "./types";
+import types from './types';
 
 const initialState = {
-  drawerOpened: false
+    drawerOpened: false
 };
 
 const app = (state = initialState, action) => {
-  switch (action.type) {
+    switch (action.type) {
     case types.UPDATE_PAGE:
-      return {
-        ...state,
-        page: action.page
-      };
+        return {
+            ...state,
+            page: action.page
+        };
     case types.UPDATE_OFFLINE:
-      return {
-        ...state,
-        offline: action.offline
-      };
+        return {
+            ...state,
+            offline: action.offline
+        };
     case types.UPDATE_DRAWER_STATE:
-      return {
-        ...state,
-        drawerOpened: action.opened
-      };
+        return {
+            ...state,
+            drawerOpened: action.opened
+        };
     case types.OPEN_SNACKBAR:
-      return {
-        ...state,
-        snackbarOpened: true
-      };
+        return {
+            ...state,
+            snackbarOpened: true
+        };
     case types.CLOSE_SNACKBAR:
-      return {
-        ...state,
-        snackbarOpened: false
-      };
+        return {
+            ...state,
+            snackbarOpened: false
+        };
     default:
-      return state;
-  }
+        return state;
+    }
 };
 
 export default app;

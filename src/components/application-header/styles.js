@@ -97,5 +97,5 @@ export const HeaderStyles = html`
                 padding-right: 0px;
             }
         }
-      </style>
+    </style>
 `;

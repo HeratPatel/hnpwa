@@ -1,10 +1,10 @@
-import { html } from "@polymer/lit-element";
-import { PageViewElement } from "../../helpers/page-view-elemet";
-import { SharedStyles } from "../../styles/shared-styles";
+import { html } from '@polymer/lit-element';
+import { PageViewElement } from '../../helpers/page-view-elemet';
+import { SharedStyles } from '../../styles/shared-styles';
 
 export class Page404 extends PageViewElement {
-  _render() {
-    return html`
+    _render() {
+        return html`
         <!-- Styles -->
         ${SharedStyles}
         <!-- Content -->
@@ -13,5 +13,5 @@ export class Page404 extends PageViewElement {
           <p>The page you're looking for doesn't seem to exist. Head back <a href="/">home</a> and try again?</p>
         </section>
       `;
-  }
+    }
 }

@@ -4,7 +4,7 @@
       "type": "script",
       "weight": 1
     },
-    "src/pages/welcome/index.js": {
+    "src/pages/top/index.js": {
       "type": "script",
       "weight": 1
     },
@@ -13,12 +13,12 @@
       "weight": 1
     }
   },
-  "/welcome": {
+  "/about": {
     "src/index.js": {
       "type": "script",
       "weight": 1
     },
-    "src/pages/welcome/index.js": {
+    "src/pages/about/index.js": {
       "type": "script",
       "weight": 1
     },
@@ -27,12 +27,12 @@
       "weight": 1
     }
   },
-  "/counter": {
+  "/ask": {
     "src/index.js": {
       "type": "script",
       "weight": 1
     },
-    "src/pages/counter/index.js": {
+    "src/pages/ask/index.js": {
       "type": "script",
       "weight": 1
     },
@@ -41,12 +41,54 @@
       "weight": 1
     }
   },
-  "/shoppingCart": {
+  "/jobs": {
     "src/index.js": {
       "type": "script",
       "weight": 1
     },
-    "src/pages/shoppingCart/index.js": {
+    "src/pages/jobs/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/new": {
+    "src/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/pages/new/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/show": {
+    "src/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/pages/show/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/top": {
+    "src/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/pages/top/index.js": {
       "type": "script",
       "weight": 1
     },

@@ -1,4 +1,4 @@
-import types from "./types";
+import types from './types';
 
 /**
  * updatePage: Updates the Page
@@ -6,25 +6,25 @@ import types from "./types";
  * @returns {object}
  */
 const updatePage = page => {
-  return {
-    type: types.UPDATE_PAGE,
-    page
-  };
+    return {
+        type: types.UPDATE_PAGE,
+        page
+    };
 };
 
 /**
  * showSnackbar: Shows Snackbar from bottom
  */
 export const showSnackbar = () => dispatch => {
-  let snackbarTimer;
-  dispatch({
-    type: types.OPEN_SNACKBAR
-  });
-  clearTimeout(snackbarTimer);
-  snackbarTimer = setTimeout(
-    () => dispatch({ type: types.CLOSE_SNACKBAR }),
-    3000
-  );
+    let snackbarTimer;
+    dispatch({
+        type: types.OPEN_SNACKBAR
+    });
+    clearTimeout(snackbarTimer);
+    snackbarTimer = setTimeout(
+        () => dispatch({ type: types.CLOSE_SNACKBAR }),
+        3000
+    );
 };
 
 /**
@@ -32,24 +32,24 @@ export const showSnackbar = () => dispatch => {
  * @param {boolean} offline
  */
 export const updateOffline = offline => (dispatch, getState) => {
-  // Show the snackbar, unless this is the first load of the page.
-  if (getState().app.offline !== undefined) {
-    dispatch(showSnackbar());
-  }
-  dispatch({
-    type: types.UPDATE_OFFLINE,
-    offline
-  });
+    // Show the snackbar, unless this is the first load of the page.
+    if (getState().app.offline !== undefined) {
+        dispatch(showSnackbar());
+    }
+    dispatch({
+        type: types.UPDATE_OFFLINE,
+        offline
+    });
 };
 
 /**
  * updateLayout: updates layout wide/narrow
  * @param {*} wide
  */
-export const updateLayout = wide => (dispatch, getState) => {
-  if (getState().app.drawerOpened) {
-    dispatch(updateDrawerState(false));
-  }
+export const updateLayout = () => (dispatch, getState) => {
+    if (getState().app.drawerOpened) {
+        dispatch(updateDrawerState(false));
+    }
 };
 
 /**
@@ -57,12 +57,12 @@ export const updateLayout = wide => (dispatch, getState) => {
  * @param {boolean} opened
  */
 export const updateDrawerState = opened => (dispatch, getState) => {
-  if (getState().app.drawerOpened !== opened) {
-    dispatch({
-      type: types.UPDATE_DRAWER_STATE,
-      opened
-    });
-  }
+    if (getState().app.drawerOpened !== opened) {
+        dispatch({
+            type: types.UPDATE_DRAWER_STATE,
+            opened
+        });
+    }
 };
 
 /**
@@ -70,9 +70,9 @@ export const updateDrawerState = opened => (dispatch, getState) => {
  * @param {string} path
  */
 export const navigate = path => dispatch => {
-  const page = path === "/" ? "welcome" : path.slice(1);
-  dispatch(loadPage(page)); // Loads Page
-  dispatch(updateDrawerState(false)); // Close Drawer if open
+    const page = path === '/' ? 'top' : path.slice(1);
+    dispatch(loadPage(page)); // Loads Page
+    dispatch(updateDrawerState(false)); // Close Drawer if open
 };
 
 /**
@@ -80,20 +80,29 @@ export const navigate = path => dispatch => {
  * @param {string} page
  */
 const loadPage = page => dispatch => {
-  switch (page) {
-    case "welcome":
-      import("../../pages/welcome/index.js");
-      break;
-    case "counter":
-      import("../../pages/counter/index.js");
-      break;
-    case "shoppingCart":
-      import("../../pages/shoppingCart/index.js");
-      break;
+    switch (page) {
+    case 'about':
+      import('../../pages/about/index.js');
+        break;
+    case 'ask':
+      import('../../pages/ask/index.js');
+        break;
+    case 'jobs':
+      import('../../pages/jobs/index.js');
+        break;
+    case 'new':
+      import('../../pages/new/index.js');
+        break;
+    case 'show':
+      import('../../pages/show/index.js');
+        break;
+    case 'top':
+      import('../../pages/top/index.js');
+        break;
     default:
-      page = "404";
-      import("../../pages/404/index.js");
-  }
+        page = '404';
+      import('../../pages/404/index.js');
+    }
 
-  dispatch(updatePage(page));
+    dispatch(updatePage(page));
 };

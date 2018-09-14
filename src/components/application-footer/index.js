@@ -1,3 +1,3 @@
-import { Footer } from "./application-footer";
+import { Footer } from './application-footer';
 
-window.customElements.define("application-footer", Footer);
+window.customElements.define('application-footer', Footer);

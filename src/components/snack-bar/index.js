@@ -1,3 +1,3 @@
-import { SnackBar } from "./snack-bar";
+import { SnackBar } from './snack-bar';
 
-window.customElements.define("snack-bar", SnackBar);
+window.customElements.define('snack-bar', SnackBar);
