@@ -99,6 +99,12 @@ const loadPage = page => dispatch => {
     case 'top':
       import('../../pages/top/index.js');
         break;
+    case 'item':
+        import('../../pages/item/index.js');
+        break;
+    case 'user':
+        import('../../pages/user/index.js');
+        break;
     default:
         page = '404';
       import('../../pages/404/index.js');

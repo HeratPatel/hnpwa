@@ -30,41 +30,41 @@ export class Header extends connect(store)(LitElement) {
 
     _render({ appTitle, currentPage, isDrawerOpened }) {
         return html`
-        <!-- Styles -->
-      ${HeaderStyles}
+          <!-- Styles -->
+          ${HeaderStyles}
 
-    <!-- Header -->
-    <app-header condenses reveals effects="waterfall">
-      <app-toolbar class="toolbar-top">
-        <button class="menu-btn" title="Menu" on-click="${() =>
+          <!-- Header -->
+          <app-header condenses reveals effects="waterfall">
+            <app-toolbar class="toolbar-top">
+              <button class="menu-btn" title="Menu" on-click="${() =>
         store.dispatch(updateDrawerState(true))}">${menuIcon}</button>
-        <div main-title>${appTitle}</div>
-      </app-toolbar>
+              <div main-title>${appTitle}</div>
+            </app-toolbar>
 
-      <!-- This gets hidden on a small screen-->
-      <nav class="toolbar-list">        
-        <a selected?=${currentPage === 'top'} href="/top">Top</a>
-        <a selected?=${currentPage === 'new'} href="/new">New</a>
-        <a selected?=${currentPage === 'show'} href="/show">Show</a>
-        <a selected?=${currentPage === 'ask'} href="/ask">Ask</a>
-        <a selected?=${currentPage === 'jobs'} href="/jobs">Jobs</a>
-        <a selected?=${currentPage === 'about'} href="/about">About</a>
-      </nav>
-    </app-header>
+            <!-- This gets hidden on a small screen-->
+            <nav class="toolbar-list">        
+              <a selected?=${currentPage === 'top'} href="/top">Top</a>
+              <a selected?=${currentPage === 'new'} href="/new">New</a>
+              <a selected?=${currentPage === 'show'} href="/show">Show</a>
+              <a selected?=${currentPage === 'ask'} href="/ask">Ask</a>
+              <a selected?=${currentPage === 'jobs'} href="/jobs">Jobs</a>
+              <a selected?=${currentPage === 'about'} href="/about">About</a>
+            </nav>
+          </app-header>
 
-    <!-- Drawer content -->
-    <app-drawer opened="${isDrawerOpened}"
-        on-opened-changed="${e =>
+          <!-- Drawer content -->
+          <app-drawer opened="${isDrawerOpened}"
+              on-opened-changed="${e =>
         store.dispatch(updateDrawerState(e.target.opened))}">
-      <nav class="drawer-list">        
-        <a selected?=${currentPage === 'top'} href="/top">Top</a>
-        <a selected?=${currentPage === 'new'} href="/new">New</a>
-        <a selected?=${currentPage === 'show'} href="/show">Show</a>
-        <a selected?=${currentPage === 'ask'} href="/ask">Ask</a>
-        <a selected?=${currentPage === 'jobs'} href="/jobs">Jobs</a>
-        <a selected?=${currentPage === 'about'} href="/about">About</a>
-      </nav>
-    </app-drawer>
-    `;
+            <nav class="drawer-list">        
+              <a selected?=${currentPage === 'top'} href="/top">Top</a>
+              <a selected?=${currentPage === 'new'} href="/new">New</a>
+              <a selected?=${currentPage === 'show'} href="/show">Show</a>
+              <a selected?=${currentPage === 'ask'} href="/ask">Ask</a>
+              <a selected?=${currentPage === 'jobs'} href="/jobs">Jobs</a>
+              <a selected?=${currentPage === 'about'} href="/about">About</a>
+            </nav>
+          </app-drawer>
+        `;
     }
 }

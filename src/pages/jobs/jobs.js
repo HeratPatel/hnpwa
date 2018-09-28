@@ -1,6 +1,7 @@
 import { html } from '@polymer/lit-element';
-import { PageViewElement } from '../../helpers/page-view-elemet';
+import { PageViewElement } from '../../utils/page-view-elemet';
 import { SharedStyles } from '../../styles/shared-styles';
+import '../../components/job-list';
 
 export class Jobs extends PageViewElement {
     _render() {
@@ -10,6 +11,7 @@ export class Jobs extends PageViewElement {
       <!-- Content -->
       <section>
         <h2>Jobs</h2>
+        <job-list></job-list>
       </section>
     `;
     }

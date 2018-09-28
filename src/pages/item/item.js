@@ -1,17 +1,17 @@
 import { html } from '@polymer/lit-element';
 import { PageViewElement } from '../../utils/page-view-elemet';
 import { SharedStyles } from '../../styles/shared-styles';
-import '../../components/top-list';
+import '../../components/item-details';
 
-export class Top extends PageViewElement {
+export class Item extends PageViewElement {
     _render() {
         return html`
       <!-- Styles -->
       ${SharedStyles}
       <!-- Content -->
       <section>
-        <h2>Top</h2>
-        <top-list></top-list>
+        <h2>Item Details</h2>
+        <item-details></item-details>
       </section>
     `;
     }
