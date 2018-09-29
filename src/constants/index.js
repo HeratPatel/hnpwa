@@ -1,1 +1,1 @@
-export const API_URI = 'http://node-hnapi.herokuapp.com';
+export const API_URI = 'https://node-hnapi.herokuapp.com';
