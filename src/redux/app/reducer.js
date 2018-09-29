@@ -1,7 +1,11 @@
 import types from './types';
 
 const initialState = {
-    drawerOpened: false
+    drawerOpened: false,
+    snackbar: {
+        status: false,
+        message: ''
+    }
 };
 
 const app = (state = initialState, action) => {
@@ -24,12 +28,12 @@ const app = (state = initialState, action) => {
     case types.OPEN_SNACKBAR:
         return {
             ...state,
-            snackbarOpened: true
+            snackbar: action.snackbar
         };
     case types.CLOSE_SNACKBAR:
         return {
             ...state,
-            snackbarOpened: false
+            snackbar: action.snackbar
         };
     default:
         return state;

@@ -25,15 +25,13 @@ class MyApp extends connect(store)(LitElement) {
         return {
             appTitle: String,
             _page: String,
-            _snackbarOpened: Boolean,
-            _offline: Boolean
+            _snackbar: Object            
         };
     }
 
     _stateChanged(state) {
-        this._page = state.app.page;
-        this._offline = state.app.offline;
-        this._snackbarOpened = state.app.snackbarOpened;
+        this._page = state.app.page;        
+        this._snackbar = state.app.snackbar;
     }
 
     _firstRendered() {
@@ -57,7 +55,7 @@ class MyApp extends connect(store)(LitElement) {
         }
     }
 
-    _render({ appTitle, _page, _snackbarOpened, _offline }) {
+    _render({ appTitle, _page, _snackbar }) {
         return html`
             <!-- Styles -->
             ${MainStyles}
@@ -82,7 +80,7 @@ class MyApp extends connect(store)(LitElement) {
             <application-footer></application-footer>
 
             <!-- Snack Bar -->
-            <snack-bar active?="${_snackbarOpened}">You are now ${_offline ? 'offline' : 'online'}.</snack-bar>    
+            <snack-bar active?="${_snackbar.status}">${_snackbar.message}</snack-bar>    
         `;
     }   
 }

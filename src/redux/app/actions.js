@@ -15,14 +15,21 @@ const updatePage = page => {
 /**
  * showSnackbar: Shows Snackbar from bottom
  */
-export const showSnackbar = () => dispatch => {
+export const showSnackbar = (snackbar) => dispatch => {
     let snackbarTimer;
     dispatch({
-        type: types.OPEN_SNACKBAR
+        type: types.OPEN_SNACKBAR,
+        snackbar
     });
     clearTimeout(snackbarTimer);
     snackbarTimer = setTimeout(
-        () => dispatch({ type: types.CLOSE_SNACKBAR }),
+        () => dispatch({ 
+            type: types.CLOSE_SNACKBAR,
+            snackbar: {
+                status: false,
+                message: ''
+            }
+        }),
         3000
     );
 };
@@ -34,7 +41,17 @@ export const showSnackbar = () => dispatch => {
 export const updateOffline = offline => (dispatch, getState) => {
     // Show the snackbar, unless this is the first load of the page.
     if (getState().app.offline !== undefined) {
-        dispatch(showSnackbar());
+        if(offline){
+            dispatch(showSnackbar({
+                status: true,
+                message: 'You are now offline.'
+            }));
+        } else {
+            dispatch(showSnackbar({
+                status: true,
+                message: 'You are now online.'
+            }));
+        }
     }
     dispatch({
         type: types.UPDATE_OFFLINE,
