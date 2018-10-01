@@ -9,7 +9,7 @@ import { fetchItemDetails } from '../../redux/item/actions';
 export class Item extends connect(store)(PageViewElement) {
     static get properties() {
         return {
-            itemDetails: Array
+            itemDetails: { type: Array }
         };
     }
 
@@ -17,11 +17,11 @@ export class Item extends connect(store)(PageViewElement) {
         this.itemDetails = state.item.itemDetails;
     }
 
-    _firstRendered(){
+    firstUpdated(){
         store.dispatch(fetchItemDetails(18090651));
     }
 
-    _render() {
+    render() {
         return html`
       <!-- Styles -->
       ${SharedStyles}

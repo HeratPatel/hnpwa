@@ -23,9 +23,9 @@ class MyApp extends connect(store)(LitElement) {
 
     static get properties() {
         return {
-            appTitle: String,
-            _page: String,
-            _snackbar: Object            
+            appTitle: { type: String },
+            _page: { type: String },
+            _snackbar: { type: Object }            
         };
     }
 
@@ -34,7 +34,7 @@ class MyApp extends connect(store)(LitElement) {
         this._snackbar = state.app.snackbar;
     }
 
-    _firstRendered() {
+    firstUpdated() {
         installRouter(location =>
             store.dispatch(navigate(window.decodeURIComponent(location.pathname)))
         );
@@ -44,9 +44,9 @@ class MyApp extends connect(store)(LitElement) {
         );
     }
 
-    _didRender(properties, changeList) {
-        if ('_page' in changeList) {
-            const pageTitle = properties.appTitle + ' - ' + changeList._page;
+    updated(changedProps) {
+        if (changedProps.has('_page')) {
+            const pageTitle = this.appTitle + ' - ' + this._page;
             updateMetadata({
                 title: pageTitle,
                 description: pageTitle
@@ -55,7 +55,8 @@ class MyApp extends connect(store)(LitElement) {
         }
     }
 
-    _render({ appTitle, _page, _snackbar }) {
+    render() {
+        const { appTitle, _page, _snackbar } = this;
         return html`
             <!-- Styles -->
             ${MainStyles}
@@ -65,22 +66,22 @@ class MyApp extends connect(store)(LitElement) {
 
             <!-- Main content -->
             <main role="main" class="main-content">      
-                <about-page class="page" active?="${_page === 'about'}"></about-page>
-                <ask-page class="page" active?="${_page === 'ask'}"></ask-page>
-                <jobs-page class="page" active?="${_page === 'jobs'}"></jobs-page>
-                <new-page class="page" active?="${_page === 'new'}"></new-page>
-                <show-page class="page" active?="${_page === 'show'}"></show-page>
-                <top-page class="page" active?="${_page === 'top'}"></top-page>
-                <item-page class="page" active?="${_page === 'item'}"></item-page>
-                <user-page class="page" active?="${_page === 'user'}"></user-page>                    
-                <page-404 class="page" active?="${_page === '404'}"></page-404>      
+                <about-page class="page" ?active="${_page === 'about'}"></about-page>
+                <ask-page class="page" ?active="${_page === 'ask'}"></ask-page>
+                <jobs-page class="page" ?active="${_page === 'jobs'}"></jobs-page>
+                <new-page class="page" ?active="${_page === 'new'}"></new-page>
+                <show-page class="page" ?active="${_page === 'show'}"></show-page>
+                <top-page class="page" ?active="${_page === 'top'}"></top-page>
+                <item-page class="page" ?active="${_page === 'item'}"></item-page>
+                <user-page class="page" ?active="${_page === 'user'}"></user-page>                    
+                <page-404 class="page" ?active="${_page === '404'}"></page-404>      
             </main>
             
             <!-- Footer -->
             <application-footer></application-footer>
 
             <!-- Snack Bar -->
-            <snack-bar active?="${_snackbar.status}">${_snackbar.message}</snack-bar>    
+            <snack-bar ?active="${_snackbar.status}">${_snackbar.message}</snack-bar>    
         `;
     }   
 }

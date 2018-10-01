@@ -9,7 +9,7 @@ import { fetchAskStories } from '../../redux/ask/actions';
 export class Ask extends connect(store)(PageViewElement) {
     static get properties(){
         return {
-            askStories: Array
+            askStories: { type: Array }
         };
     }
 
@@ -17,11 +17,11 @@ export class Ask extends connect(store)(PageViewElement) {
         this.askStories = state.ask.askStories;
     }
 
-    _firstRendered(){
+    firstUpdated(){
         store.dispatch(fetchAskStories(1));
     }
 
-    _render() {
+    render() {
         return html`
       <!-- Styles -->
       ${SharedStyles}

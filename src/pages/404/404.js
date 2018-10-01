@@ -3,7 +3,7 @@ import { PageViewElement } from '../../utils/page-view-elemet';
 import { SharedStyles } from '../../styles/shared-styles';
 
 export class Page404 extends PageViewElement {
-    _render() {
+    render() {
         return html`
         <!-- Styles -->
         ${SharedStyles}

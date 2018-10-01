@@ -4,11 +4,11 @@ import { SnackBarStyles } from './styles';
 export class SnackBar extends LitElement {
     static get properties() {
         return {
-            active: Boolean
+            active: { type: Boolean }
         };
     }
 
-    _render() {
+    render() {
         return html`
         <!-- Styles -->
         ${SnackBarStyles}

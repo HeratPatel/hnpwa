@@ -9,7 +9,7 @@ import { fetchUserDetails } from '../../redux/user/actions';
 export class User extends connect(store)(PageViewElement) {
     static get properties() {
         return {
-            userDetails: Array
+            userDetails: { type: Array }
         };
     }
 
@@ -17,11 +17,11 @@ export class User extends connect(store)(PageViewElement) {
         this.userDetails = state.user.userDetails;
     }
 
-    _firstRendered(){
+    firstUpdated(){
         store.dispatch(fetchUserDetails('tcsl_armor'));
     }
 
-    _render() {
+    render() {
         return html`
       <!-- Styles -->
       ${SharedStyles}

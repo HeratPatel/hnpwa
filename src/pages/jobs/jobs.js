@@ -9,7 +9,7 @@ import { fetchJobStories } from '../../redux/jobs/actions';
 export class Jobs extends connect(store)(PageViewElement) {
     static get properties() {
         return {
-            jobStories: Array
+            jobStories: { type: Array }
         };
     }
 
@@ -17,11 +17,11 @@ export class Jobs extends connect(store)(PageViewElement) {
         this.jobStories = state.jobs.jobStories;
     }
 
-    _firstRendered(){
+    firstUpdated(){
         store.dispatch(fetchJobStories(1));
     }
 
-    _render() {
+    render() {
         return html`
       <!-- Styles -->
       ${SharedStyles}

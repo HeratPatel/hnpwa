@@ -9,7 +9,7 @@ import { fetchNewStories } from '../../redux/newest/actions';
 export class New extends connect(store)(PageViewElement) {
     static get properties() {
         return {
-            newStories: Array
+            newStories: {type: Array}
         };
     }
 
@@ -17,11 +17,11 @@ export class New extends connect(store)(PageViewElement) {
         this.newStories = state.newest.newStories;
     }
 
-    _firstRendered(){
+    firstUpdated(){
         store.dispatch(fetchNewStories(1));
     }
 
-    _render() {
+    render() {
         return html`
       <!-- Styles -->
       ${SharedStyles}

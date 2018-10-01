@@ -2,7 +2,7 @@ import { LitElement, html } from '@polymer/lit-element';
 import { FooterStyles } from './styles';
 
 export class Footer extends LitElement {
-    _render() {
+    render() {
         return html`
         <!-- Styles -->
         ${FooterStyles}

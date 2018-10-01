@@ -9,7 +9,7 @@ import { fetchTopStories } from '../../redux/top/actions';
 export class Top extends connect(store)(PageViewElement) {
     static get properties() {
         return {
-            topStories: Array
+            topStories: {type: Array}
         };
     }
 
@@ -17,11 +17,11 @@ export class Top extends connect(store)(PageViewElement) {
         this.topStories = state.top.topStories;
     }
 
-    _firstRendered(){
+    firstUpdated(){
         store.dispatch(fetchTopStories(1));
     }
 
-    _render() {
+    render() {
         return html`
       <!-- Styles -->
       ${SharedStyles}

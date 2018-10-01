@@ -9,7 +9,7 @@ import { fetchShowStories } from '../../redux/show/actions';
 export class Show extends connect(store)(PageViewElement) {
     static get properties() {
         return {
-            showStories: Array
+            showStories: { type: Array }
         };
     }
 
@@ -17,11 +17,11 @@ export class Show extends connect(store)(PageViewElement) {
         this.showStories = state.show.showStories;
     }
 
-    _firstRendered(){
+    firstUpdated(){
         store.dispatch(fetchShowStories(1));
     }
 
-    _render() {
+    render() {
         return html`
       <!-- Styles -->
       ${SharedStyles}

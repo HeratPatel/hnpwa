@@ -18,9 +18,9 @@ export class Header extends connect(store)(LitElement) {
 
     static get properties() {
         return {
-            appTitle: String,
-            currentPage: String,
-            isDrawerOpened: Boolean
+            appTitle: { type: String },
+            currentPage: { type: String },
+            isDrawerOpened: { type: Boolean }
         };
     }
 
@@ -28,7 +28,8 @@ export class Header extends connect(store)(LitElement) {
         this.isDrawerOpened = state.app.drawerOpened;
     }
 
-    _render({ appTitle, currentPage, isDrawerOpened }) {
+    render() {
+        const { appTitle, currentPage, isDrawerOpened } = this;
         return html`
           <!-- Styles -->
           ${HeaderStyles}
@@ -36,33 +37,33 @@ export class Header extends connect(store)(LitElement) {
           <!-- Header -->
           <app-header condenses reveals effects="waterfall">
             <app-toolbar class="toolbar-top">
-              <button class="menu-btn" title="Menu" on-click="${() =>
+              <button class="menu-btn" title="Menu" @click="${() =>
         store.dispatch(updateDrawerState(true))}">${menuIcon}</button>
               <div main-title>${appTitle}</div>
             </app-toolbar>
 
             <!-- This gets hidden on a small screen-->
             <nav class="toolbar-list">        
-              <a selected?=${currentPage === 'top'} href="/top">Top</a>
-              <a selected?=${currentPage === 'new'} href="/new">New</a>
-              <a selected?=${currentPage === 'show'} href="/show">Show</a>
-              <a selected?=${currentPage === 'ask'} href="/ask">Ask</a>
-              <a selected?=${currentPage === 'jobs'} href="/jobs">Jobs</a>
-              <a selected?=${currentPage === 'about'} href="/about">About</a>
+              <a ?selected=${currentPage === 'top'} href="/top">Top</a>
+              <a ?selected=${currentPage === 'new'} href="/new">New</a>
+              <a ?selected=${currentPage === 'show'} href="/show">Show</a>
+              <a ?selected=${currentPage === 'ask'} href="/ask">Ask</a>
+              <a ?selected=${currentPage === 'jobs'} href="/jobs">Jobs</a>
+              <a ?selected=${currentPage === 'about'} href="/about">About</a>
             </nav>
           </app-header>
 
           <!-- Drawer content -->
-          <app-drawer opened="${isDrawerOpened}"
-              on-opened-changed="${e =>
+          <app-drawer .opened="${isDrawerOpened}"
+              @opened-changed="${e =>
         store.dispatch(updateDrawerState(e.target.opened))}">
             <nav class="drawer-list">        
-              <a selected?=${currentPage === 'top'} href="/top">Top</a>
-              <a selected?=${currentPage === 'new'} href="/new">New</a>
-              <a selected?=${currentPage === 'show'} href="/show">Show</a>
-              <a selected?=${currentPage === 'ask'} href="/ask">Ask</a>
-              <a selected?=${currentPage === 'jobs'} href="/jobs">Jobs</a>
-              <a selected?=${currentPage === 'about'} href="/about">About</a>
+              <a ?selected=${currentPage === 'top'} href="/top">Top</a>
+              <a ?selected=${currentPage === 'new'} href="/new">New</a>
+              <a ?selected=${currentPage === 'show'} href="/show">Show</a>
+              <a ?selected=${currentPage === 'ask'} href="/ask">Ask</a>
+              <a ?selected=${currentPage === 'jobs'} href="/jobs">Jobs</a>
+              <a ?selected=${currentPage === 'about'} href="/about">About</a>
             </nav>
           </app-drawer>
         `;
