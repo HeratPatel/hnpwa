@@ -12,10 +12,6 @@ import '@polymer/app-layout/app-toolbar/app-toolbar';
 import '@polymer/app-layout/app-scroll-effects/effects/waterfall';
 
 export class Header extends connect(store)(LitElement) {
-    constructor() {
-        super();
-    }
-
     static get properties() {
         return {
             appTitle: { type: String },

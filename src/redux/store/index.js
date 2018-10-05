@@ -15,6 +15,7 @@ import jobs from '../jobs/reducer';
 import ask from '../ask/reducer';
 import item from '../item/reducer';
 import user from '../user/reducer';
+import page from '../page/reducer';
 
 // Sets up a Chrome extension for time travel debugging.
 // See https://github.com/zalmoxisus/redux-devtools-extension for more information.
@@ -42,5 +43,6 @@ store.addReducers({
     jobs,
     ask,
     item,
-    user
+    user,
+    page
 });

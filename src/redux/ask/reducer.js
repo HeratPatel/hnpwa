@@ -1,7 +1,8 @@
 import types from './types';
 
 const initialState = {
-    askStories: []
+    askStories: [],
+    page: 1
 };
 
 const ask = (state = initialState, action) => {
