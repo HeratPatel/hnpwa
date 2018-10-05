@@ -9,16 +9,18 @@ import { fetchNewStories } from '../../redux/newest/actions';
 export class New extends connect(store)(PageViewElement) {
     static get properties() {
         return {
-            newStories: {type: Array}
+            newStories: {type: Array},
+            page: {type: Number}
         };
     }
 
     _stateChanged(state) {
         this.newStories = state.newest.newStories;
+        this.page = state.page.newest;
     }
 
     firstUpdated(){
-        store.dispatch(fetchNewStories(1));
+        store.dispatch(fetchNewStories(this.page));
     }
 
     render() {

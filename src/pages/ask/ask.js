@@ -9,16 +9,18 @@ import { fetchAskStories } from '../../redux/ask/actions';
 export class Ask extends connect(store)(PageViewElement) {
     static get properties(){
         return {
-            askStories: { type: Array }
+            askStories: { type: Array },
+            page: { type: Number }
         };
     }
 
     _stateChanged(state) {
         this.askStories = state.ask.askStories;
+        this.page = state.page.ask;
     }
 
-    firstUpdated(){
-        store.dispatch(fetchAskStories(1));
+    firstUpdated(){        
+        store.dispatch(fetchAskStories(this.page));
     }
 
     render() {

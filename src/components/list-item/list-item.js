@@ -1,7 +1,7 @@
 import { LitElement, html } from '@polymer/lit-element';
 import { ListItemStyle } from './styles';
 
-class ListItem extends LitElement {
+export class ListItem extends LitElement {
     static get properties() {
         return {
             id: {type: Number},
@@ -42,5 +42,3 @@ class ListItem extends LitElement {
         `;
     }
 }
-
-export default ListItem;

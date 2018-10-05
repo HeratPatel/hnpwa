@@ -9,16 +9,18 @@ import { fetchTopStories } from '../../redux/top/actions';
 export class Top extends connect(store)(PageViewElement) {
     static get properties() {
         return {
-            topStories: {type: Array}
+            topStories: {type: Array},
+            page: {type: Number}
         };
     }
 
     _stateChanged(state) {
         this.topStories = state.top.topStories;
+        this.page = state.page.show;
     }
 
     firstUpdated(){
-        store.dispatch(fetchTopStories(1));
+        store.dispatch(fetchTopStories(this.page));
     }
 
     render() {

@@ -9,16 +9,18 @@ import { fetchJobStories } from '../../redux/jobs/actions';
 export class Jobs extends connect(store)(PageViewElement) {
     static get properties() {
         return {
-            jobStories: { type: Array }
+            jobStories: { type: Array },
+            page: { type: Number }
         };
     }
 
     _stateChanged(state) {
         this.jobStories = state.jobs.jobStories;
+        this.page = state.page.jobs;
     }
 
     firstUpdated(){
-        store.dispatch(fetchJobStories(1));
+        store.dispatch(fetchJobStories(this.page));
     }
 
     render() {

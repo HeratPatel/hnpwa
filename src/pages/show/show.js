@@ -9,16 +9,18 @@ import { fetchShowStories } from '../../redux/show/actions';
 export class Show extends connect(store)(PageViewElement) {
     static get properties() {
         return {
-            showStories: { type: Array }
+            showStories: { type: Array },
+            page: {type: Number}
         };
     }
 
     _stateChanged(state) {
         this.showStories = state.show.showStories;
+        this.page = state.page.show;
     }
 
     firstUpdated(){
-        store.dispatch(fetchShowStories(1));
+        store.dispatch(fetchShowStories(this.page));
     }
 
     render() {
