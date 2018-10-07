@@ -5,6 +5,7 @@ import { SharedStyles } from '../../styles/shared-styles';
 import { connect } from 'pwa-helpers/connect-mixin';
 import { store } from '../../redux/store';
 import { fetchAskStories } from '../../redux/ask/actions';
+import '../../components/list-item';
 
 export class Ask extends connect(store)(PageViewElement) {
     static get properties(){
@@ -29,7 +30,16 @@ export class Ask extends connect(store)(PageViewElement) {
       ${SharedStyles}
       <!-- Content -->
       <section>
-        <h2>Ask</h2>        
+        <h2>Ask</h2>
+        <list-item
+            id="${18144646}"
+            title="Ask HN: What does it feel like to master playing an instrument by ear?"
+            points="${33}"
+            user="osrec"            
+            time_ago="13 hours ago"
+            comments_count="${46}"            
+            url="item?id=18144646"
+        ></list-item>        
       </section>
     `;
     }

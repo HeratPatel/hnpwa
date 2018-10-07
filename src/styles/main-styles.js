@@ -10,6 +10,9 @@ export const MainStyles = html`
             --app-light-text-color: white;
             --app-section-even-color: #f7f7f7;
             --app-section-odd-color: white;
+            --detail-font-size: 0.75rem;
+            --detail-font-color: #666;
+            --separator-border: 1px solid #eee;
         }
 
         main {
@@ -31,7 +34,7 @@ export const MainStyles = html`
 
         @media (min-width: 460px) {        
             .main-content {
-            padding-top: 107px;
+                padding-top: 107px;
             }      
         }
     </style>

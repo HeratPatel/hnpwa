@@ -2,54 +2,58 @@ import { html } from '@polymer/lit-element';
 
 export const ListItemStyle = html`
     <style>
-        .list-item-container {
-            display: flex;
-            flex-direction: column;            
-            padding: 20px;
-            border-radius: 5px; 
-            border: 1px solid var(--app-primary-color);            
+        :host {
+            display: block;
+            font-size: var(--detail-font-size);
         }
-
-        .list-item-count {            
-            margin-right: 20px;
-            font-size: 30px;
+      
+        a {
             color: var(--app-dark-text-color);
         }
-
-        .list-item-title-container {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+      
+        .title, .domain {
+            font-size: 1rem;
         }
-
-        .list-item-title-container a {
-            font-size: 22px;
+      
+        .title {
             text-decoration: none;
-            color: var(--app-primary-color);
-            margin-right: 10px;
         }
-
-        .list-item-title-container span {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .list-item-information {
+      
+        .domain {
+            padding-left: 4px;
+            color: var(--detail-font-color);
+        }        
+        
+        .meta {
             display: flex;
             justify-content: space-between;
-            font-size: 14px;
-            margin-top: 10px;
+            align-items: center;
+            padding: 8px 0;
+            color: var(--detail-font-color);
+            border-bottom: var(--separator-border);
         }
 
-        .list-item-information span {
+        .meta span {
             display: flex;
             align-items: center;
         }
+      
+        .user {
+            color: var(--detail-font-color);
+        }
+       
+        li {
+            display: flex;
+            flex-direction: column;
+            padding: 8px 0;
+            border-bottom: var(--separator-border);
+            overflow-wrap: break-word;            
+        }
 
-        .list-item-information span svg {
-            height: 15px;
+        svg {
             width: 15px;
+            height: 15px;
             margin-right: 5px;
-        }        
+        }
     </style>
 `;
