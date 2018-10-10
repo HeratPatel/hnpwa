@@ -31,7 +31,7 @@ export class Header extends connect(store)(LitElement) {
           ${HeaderStyles}
 
           <!-- Header -->
-          <app-header condenses reveals effects="waterfall">
+          <app-header fixed reveals effects="waterfall">
             <app-toolbar class="toolbar-top">
               <button class="menu-btn" title="Menu" @click="${() =>
         store.dispatch(updateDrawerState(true))}">${menuIcon}</button>

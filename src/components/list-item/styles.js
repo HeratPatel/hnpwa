@@ -15,7 +15,7 @@ export const ListItemStyle = html`
             font-size: 1rem;
         }
       
-        .title {
+        .title a {
             text-decoration: none;
         }
       
@@ -24,25 +24,17 @@ export const ListItemStyle = html`
             color: var(--detail-font-color);
         }        
         
-        .meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .meta {            
             padding: 8px 0;
             color: var(--detail-font-color);
-            border-bottom: var(--separator-border);
-        }
-
-        .meta span {
-            display: flex;
-            align-items: center;
+            max-width: 600px;        
         }
       
         .user {
             color: var(--detail-font-color);
         }
        
-        li {
+        .item {
             display: flex;
             flex-direction: column;
             padding: 8px 0;
@@ -54,6 +46,10 @@ export const ListItemStyle = html`
             width: 15px;
             height: 15px;
             margin-right: 5px;
+        }
+
+        .spacer {
+            padding-right: .5em;
         }
     </style>
 `;

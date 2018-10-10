@@ -5,7 +5,7 @@ import { installMediaQueryWatcher } from 'pwa-helpers/media-query';
 import { installOfflineWatcher } from 'pwa-helpers/network';
 import { installRouter } from 'pwa-helpers/router';
 import { updateMetadata } from 'pwa-helpers/metadata';
-import { MainStyles } from './styles/main-styles';
+import { MainStyles } from './styles';
 
 import './components/snack-bar';
 import './components/application-header';

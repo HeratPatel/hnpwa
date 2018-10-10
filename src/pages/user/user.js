@@ -1,6 +1,6 @@
 import { html } from '@polymer/lit-element';
 import { PageViewElement } from '../../utils/page-view-elemet';
-import { SharedStyles } from '../../styles/shared-styles';
+import { PageStyles } from '../styles';
 // redux helpers
 import { connect } from 'pwa-helpers/connect-mixin';
 import { store } from '../../redux/store';
@@ -24,7 +24,8 @@ export class User extends connect(store)(PageViewElement) {
     render() {
         return html`
       <!-- Styles -->
-      ${SharedStyles}
+      ${PageStyles}
+      
       <!-- Content -->
       <section>
         <h2>User</h2>        

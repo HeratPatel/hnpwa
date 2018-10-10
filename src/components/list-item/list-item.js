@@ -1,6 +1,6 @@
 import { LitElement, html } from '@polymer/lit-element';
 import { ListItemStyle } from './styles';
-import { starIcon, userIcon, clockIcon, commentIcon } from '../../icons';
+// import { starIcon, userIcon, clockIcon, commentIcon } from '../../icons';
 
 export class ListItem extends LitElement {
     static get properties() {
@@ -12,7 +12,8 @@ export class ListItem extends LitElement {
             time_ago: { type: String },
             comments_count: { type: Number },
             url: { type: String },
-            domain: { type: String }
+            domain: { type: String },
+            type: { type: String }
         };
     }
 
@@ -25,7 +26,8 @@ export class ListItem extends LitElement {
             time_ago,
             comments_count,
             url,
-            domain
+            domain,
+            type
         } = this;
 
         return html`
@@ -33,21 +35,33 @@ export class ListItem extends LitElement {
             ${ListItemStyle}
             
             <!-- Content -->
-            <li>
+            <div class="item">
                 <div class="title">
                     <a href=${url}>${title}</a>
-                    ${domain 
-        ? html`<span class="domain">(${domain})</span>`
-        : html``        
-}            
+                    ${domain && (type === 'link' || type === 'job') 
+                        ? html`
+                            <span class="domain">(${domain})</span>
+                        `
+                        : null  
+                    }            
                 </div>
                 <div class="meta">
-                    <span>${starIcon} ${points}</span>
-                    <span>${userIcon} <a class="user" href="/user/${user}">${user}</a></span>
-                    <span>${commentIcon} <a href="/comments/${id}">${comments_count} comments</a></span>                    
-                    <span>${clockIcon} ${time_ago}</span>
+                    ${type !== 'job' ? 
+                        html`
+                            ${points} points by 
+                            <a class="user" href="/user/${user}">${user}</a>
+                        `
+                        : null }                    
+                    ${time_ago}
+                    ${type !== 'job' && comments_count > 0 ?
+                        html`
+                            <span class="spacer">|</span>
+                            <span><a href="/comments/${id}">${comments_count} comments</a></span>   
+                        `
+                        : null
+                    }                    
                 </div>
-            </li>
+            </div>
         `;
     }
 }

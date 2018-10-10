@@ -1,12 +1,13 @@
 import { html } from '@polymer/lit-element';
 import { PageViewElement } from '../../utils/page-view-elemet';
-import { SharedStyles } from '../../styles/shared-styles';
+import { PageStyles } from '../styles';
 
 export class About extends PageViewElement {
     render() {
         return html`
       <!-- Styles -->
-      ${SharedStyles}
+      ${PageStyles}
+      
       <!-- Content -->
       <section>
         <h2>About</h2>
