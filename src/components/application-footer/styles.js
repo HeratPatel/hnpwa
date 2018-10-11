@@ -8,5 +8,25 @@ export const FooterStyles = html`
             color: var(--app-drawer-text-color);
             text-align: center;
         }
+
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .pagination button {
+            background: none;
+            border: none;
+        }
+
+        .pagination button:hover {
+            outline: none;
+        }
+
+        .pagination button svg {
+            width: 30px;
+            height: 30px;
+        }
     </style>
 `;

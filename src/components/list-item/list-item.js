@@ -1,6 +1,5 @@
 import { LitElement, html } from '@polymer/lit-element';
 import { ListItemStyle } from './styles';
-// import { starIcon, userIcon, clockIcon, commentIcon } from '../../icons';
 
 export class ListItem extends LitElement {
     static get properties() {
@@ -39,27 +38,27 @@ export class ListItem extends LitElement {
                 <div class="title">
                     <a href=${url}>${title}</a>
                     ${domain && (type === 'link' || type === 'job') 
-                        ? html`
+        ? html`
                             <span class="domain">(${domain})</span>
                         `
-                        : null  
-                    }            
+        : null  
+}            
                 </div>
                 <div class="meta">
                     ${type !== 'job' ? 
-                        html`
+        html`
                             ${points} points by 
                             <a class="user" href="/user/${user}">${user}</a>
                         `
-                        : null }                    
+        : null }                    
                     ${time_ago}
                     ${type !== 'job' && comments_count > 0 ?
-                        html`
+        html`
                             <span class="spacer">|</span>
                             <span><a href="/comments/${id}">${comments_count} comments</a></span>   
                         `
-                        : null
-                    }                    
+        : null
+}                    
                 </div>
             </div>
         `;
