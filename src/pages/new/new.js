@@ -16,8 +16,12 @@ export class New extends connect(store)(PageViewElement) {
     }
 
     _stateChanged(state) {
-        this.newStories = state.newest.newStories;
-        this.page = state.page.newest;
+        const pageNo = state.page.newest;
+        if(this.page !== undefined && this.page !== pageNo){
+            store.dispatch(fetchNewStories(pageNo));
+        }
+        this.newStories = state.newest;
+        this.page = pageNo;
     }
 
     firstUpdated(){
@@ -35,7 +39,7 @@ export class New extends connect(store)(PageViewElement) {
             <section>                
                 <ul>
                     ${newStories.length > 0 ?
-                        newStories.map(item => html`
+        newStories.map(item => html`
                             <list-item
                                 id="${item.id}"
                                 title="${item.title}"
@@ -49,11 +53,11 @@ export class New extends connect(store)(PageViewElement) {
                             >
                             </list-item>
                         `)
-                        :
-                        html`
+        :
+        html`
                             <div>No Content</div>
                         `
-                    }
+}
                 </ul>      
             </section>
         `;

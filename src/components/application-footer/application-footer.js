@@ -6,11 +6,12 @@ import { connect } from 'pwa-helpers/connect-mixin';
 import { store } from '../../redux/store';
 import { incrementPageCount, decrementPageCount } from '../../redux/page/actions';
 
-export class Footer extends connect(store)(LitElement) {
+export class Footer extends connect(store)(LitElement) {    
     static get properties() {
         return {
             pageNo: {type: Number},
-            currentPage: {type: String}
+            currentPage: {type: String},
+            items: {type: Array}
         };
     }
 
@@ -18,10 +19,13 @@ export class Footer extends connect(store)(LitElement) {
         const page = state.app.page === 'new' ? 'newest' : state.app.page;
         this.currentPage = page;
         this.pageNo = state.page[page];
+        this.items = state[page];              
     }
 
     render() {
-        const { currentPage, pageNo } = this;
+        const { currentPage, pageNo, items } = this;
+        const isPrevDisabled = (pageNo === 1);
+        const isNextDisabled = (items && items.length < 30);        
 
         return html`
         <!-- Styles -->
@@ -29,9 +33,9 @@ export class Footer extends connect(store)(LitElement) {
         <!-- Content -->
         <footer>            
             <div class="pagination">
-                <button @click="${() => store.dispatch(decrementPageCount(currentPage))}">${prevIcon}</button>
+                <button .disabled="${isPrevDisabled}" @click="${() => store.dispatch(decrementPageCount(currentPage))}">${prevIcon}</button>
                 <span>${pageNo}</span>
-                <button @click="${() => store.dispatch(incrementPageCount(currentPage))}">${nextIcon}</button>
+                <button .disabled="${isNextDisabled}" @click="${() => store.dispatch(incrementPageCount(currentPage))}">${nextIcon}</button>
             </div>
         </footer>
     `;

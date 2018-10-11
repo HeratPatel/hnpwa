@@ -1,16 +1,9 @@
 import types from './types';
 
-const initialState = {
-    topStories: []
-};
-
-const top = (state = initialState, action) => {
+const top = (state = [], action) => {
     switch(action.type){
     case types.STORE_TOP_STORIES:
-        return {
-            ...state,
-            topStories: action.topStories
-        };
+        return action.topStories;
 
     default:
         return state;

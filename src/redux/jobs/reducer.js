@@ -1,16 +1,9 @@
 import types from './types';
 
-const initialState = {
-    jobStories: []
-};
-
-const jobs = (state = initialState, action) => {
+const jobs = (state = [], action) => {
     switch(action.type){
     case types.STORE_JOB_STORIES:
-        return {
-            ...state,
-            jobStories: action.jobStories
-        };
+        return action.jobStories;
 
     default:
         return state;

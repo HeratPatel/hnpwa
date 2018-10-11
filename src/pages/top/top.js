@@ -16,8 +16,12 @@ export class Top extends connect(store)(PageViewElement) {
     }
 
     _stateChanged(state) {
-        this.topStories = state.top.topStories;
-        this.page = state.page.show;
+        const pageNo = state.page.top;
+        if(this.page !== undefined && this.page !== pageNo){
+            store.dispatch(fetchTopStories(pageNo));
+        }
+        this.topStories = state.top;
+        this.page = pageNo;
     }
 
     firstUpdated(){
@@ -35,7 +39,7 @@ export class Top extends connect(store)(PageViewElement) {
             <section>            
                 <ul>
                     ${topStories.length > 0 ?
-                        topStories.map(item => html`
+        topStories.map(item => html`
                             <list-item
                                 id="${item.id}"
                                 title="${item.title}"
@@ -49,11 +53,11 @@ export class Top extends connect(store)(PageViewElement) {
                             >
                             </list-item>
                         `)
-                        :
-                        html`
+        :
+        html`
                             <div>No Content</div>
                         `
-                    }        
+}        
                 </ul>        
             </section>
         `;

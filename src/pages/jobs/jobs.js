@@ -16,8 +16,12 @@ export class Jobs extends connect(store)(PageViewElement) {
     }
 
     _stateChanged(state) {
-        this.jobStories = state.jobs.jobStories;
-        this.page = state.page.jobs;
+        const pageNo = state.page.jobs;
+        if(this.page !== undefined && this.page !== pageNo){
+            store.dispatch(fetchJobStories(pageNo));
+        }
+        this.jobStories = state.jobs;
+        this.page = pageNo;
     }
 
     firstUpdated(){
@@ -34,7 +38,7 @@ export class Jobs extends connect(store)(PageViewElement) {
       <!-- Content -->
       <section>            
         ${jobStories.length > 0 ? 
-            jobStories.map(item => html`
+        jobStories.map(item => html`
                 <list-item
                     id="${item.id}"
                     title="${item.title}"
@@ -48,11 +52,11 @@ export class Jobs extends connect(store)(PageViewElement) {
                 >
                 </list-item>
             `)
-            :
-            html`
+        :
+        html`
                 <div>No Content</div>
             `
-        }              
+}              
       </section>
     `;
     }

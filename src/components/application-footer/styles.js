@@ -28,5 +28,10 @@ export const FooterStyles = html`
             width: 30px;
             height: 30px;
         }
+        
+        .pagination span {
+            font-weight: 600;
+            font-size: 20px;
+        }
     </style>
 `;

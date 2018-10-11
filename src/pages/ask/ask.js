@@ -11,13 +11,17 @@ export class Ask extends connect(store)(PageViewElement) {
     static get properties(){
         return {
             askStories: { type: Array },
-            page: { type: Number }
+            page: { type: Number }            
         };
     }
 
-    _stateChanged(state) {
-        this.askStories = state.ask.askStories;
-        this.page = state.page.ask;
+    _stateChanged(state) {        
+        const pageNo = state.page.ask;
+        if(this.page !== undefined && this.page !== pageNo){
+            store.dispatch(fetchAskStories(pageNo));
+        }      
+        this.askStories = state.ask;
+        this.page = pageNo;
     }
 
     firstUpdated(){        
@@ -35,7 +39,7 @@ export class Ask extends connect(store)(PageViewElement) {
             <section>                
                 <ul>
                 ${askStories.length > 0 ? 
-                    askStories.map(item => html`
+        askStories.map(item => html`
                         <list-item
                             id="${item.id}"
                             title="${item.title}"
@@ -49,11 +53,11 @@ export class Ask extends connect(store)(PageViewElement) {
                         >
                         </list-item>
                     `)
-                    :
-                    html`
+        :
+        html`
                         <div>No Content</div>
                     `
-                }
+}
                 </ul>
             </section>                               
         `;
