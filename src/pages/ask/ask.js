@@ -29,7 +29,7 @@ export class Ask extends connect(store)(PageViewElement) {
     }
 
     render() {
-        const { askStories } = this;
+        const { askStories } = this;        
 
         return html`
             <!-- Styles -->
@@ -46,7 +46,7 @@ export class Ask extends connect(store)(PageViewElement) {
                             user="${item.user}"
                             time_ago="${item.time_ago}"
                             comments_count="${item.comments_count}"
-                            url="${item.url}"
+                            url="${`/item/${item.url.split('id=')[1]}`}"
                             domain="${item.domain || ''}"
                             type="${item.type}"
                         >

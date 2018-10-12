@@ -1,5 +1,6 @@
 import types from './types';
 import { fetchUserDetails } from '../../redux/user/actions';
+import { fetchItemDetails } from '../../redux/item/actions';
 
 /**
  * updatePage: Updates the Page
@@ -93,6 +94,9 @@ export const navigate = path => dispatch => {
     const secondarySlug = page.split('/')[1];
     if(primarySlug === 'user'){
         dispatch(fetchUserDetails(secondarySlug));
+    }
+    if(primarySlug === 'item'){                
+        dispatch(fetchItemDetails(secondarySlug));
     }
     dispatch(loadPage(primarySlug)); // Loads Page
     dispatch(updateDrawerState(false)); // Close Drawer if open

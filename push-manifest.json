@@ -96,5 +96,33 @@
       "type": "script",
       "weight": 1
     }
+  },
+  "/user": {
+    "src/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/pages/user/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/item": {
+    "src/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/pages/item/index.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
   }
 }

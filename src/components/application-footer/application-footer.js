@@ -27,7 +27,7 @@ export class Footer extends connect(store)(LitElement) {
         const isPrevDisabled = (pageNo === 1);
         const isNextDisabled = (items && items.length < 30);
         
-        if(currentPage === 'user' || currentPage === 'item'){
+        if(currentPage === 'user' || currentPage === 'item' || currentPage === 'about'){
             return html`
                 <!-- Styles -->
                 ${FooterStyles}

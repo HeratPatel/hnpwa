@@ -36,7 +36,7 @@ export class ListItem extends LitElement {
             <!-- Content -->
             <div class="item">
                 <div class="title">
-                    <a href=${url}>${title}</a>
+                    <a href="${url}">${title}</a>
                     ${domain && (type === 'link' || type === 'job') 
         ? html`
                             <span class="domain">(${domain})</span>
@@ -55,7 +55,7 @@ export class ListItem extends LitElement {
                     ${type !== 'job' && comments_count > 0 ?
         html`
                             <span class="spacer">|</span>
-                            <span><a href="/comments/${id}">${comments_count} comments</a></span>   
+                            <span><a href="/item/${id}">${comments_count} comments</a></span>   
                         `
         : null
 }                    
