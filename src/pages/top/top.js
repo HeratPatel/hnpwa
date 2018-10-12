@@ -36,8 +36,7 @@ export class Top extends connect(store)(PageViewElement) {
             ${PageStyles}
             
             <!-- Content -->
-            <section>            
-                <ul>
+            <section>                
                     ${topStories.length > 0 ?
         topStories.map(item => html`
                             <list-item
@@ -57,8 +56,7 @@ export class Top extends connect(store)(PageViewElement) {
         html`
                             <div>No Content</div>
                         `
-}        
-                </ul>        
+}                           
             </section>
         `;
     }

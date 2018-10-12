@@ -26,6 +26,12 @@ export const PageStyles = html`
             padding-left: 0;
         }
 
+        .user-details{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         @media (min-width: 460px) {
             h2 {
             font-size: 36px;

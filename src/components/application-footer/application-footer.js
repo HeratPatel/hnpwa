@@ -25,18 +25,29 @@ export class Footer extends connect(store)(LitElement) {
     render() {
         const { currentPage, pageNo, items } = this;
         const isPrevDisabled = (pageNo === 1);
-        const isNextDisabled = (items && items.length < 30);        
+        const isNextDisabled = (items && items.length < 30);
+        
+        if(currentPage === 'user' || currentPage === 'item'){
+            return html`
+                <!-- Styles -->
+                ${FooterStyles}
+                <!-- Content -->
+                <footer>
+                    <p>Made with &hearts; by the <a href="https://github.com/HeratPatel">Herat Patel</a>.</p>
+                </footer>
+            `;
+        }
 
         return html`
         <!-- Styles -->
         ${FooterStyles}
         <!-- Content -->
-        <footer>            
+        <footer>
             <div class="pagination">
-                <button .disabled="${isPrevDisabled}" @click="${() => store.dispatch(decrementPageCount(currentPage))}">${prevIcon}</button>
+                <button .disabled="${isPrevDisabled}" title="Previous_Page" @click="${() => store.dispatch(decrementPageCount(currentPage))}">${prevIcon}</button>
                 <span>${pageNo}</span>
-                <button .disabled="${isNextDisabled}" @click="${() => store.dispatch(incrementPageCount(currentPage))}">${nextIcon}</button>
-            </div>
+                <button .disabled="${isNextDisabled}" title="Next_Page" @click="${() => store.dispatch(incrementPageCount(currentPage))}">${nextIcon}</button>
+            </div>                        
         </footer>
     `;
     }

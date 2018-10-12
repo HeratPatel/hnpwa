@@ -37,7 +37,6 @@ export class Ask extends connect(store)(PageViewElement) {
 
             <!-- Content -->
             <section>                
-                <ul>
                 ${askStories.length > 0 ? 
         askStories.map(item => html`
                         <list-item
@@ -57,8 +56,7 @@ export class Ask extends connect(store)(PageViewElement) {
         html`
                         <div>No Content</div>
                     `
-}
-                </ul>
+}                
             </section>                               
         `;
     }

@@ -37,7 +37,6 @@ export class New extends connect(store)(PageViewElement) {
             
             <!-- Content -->
             <section>                
-                <ul>
                     ${newStories.length > 0 ?
         newStories.map(item => html`
                             <list-item
@@ -57,8 +56,7 @@ export class New extends connect(store)(PageViewElement) {
         html`
                             <div>No Content</div>
                         `
-}
-                </ul>      
+}                     
             </section>
         `;
     }

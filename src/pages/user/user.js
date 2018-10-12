@@ -4,9 +4,8 @@ import { PageStyles } from '../styles';
 // redux helpers
 import { connect } from 'pwa-helpers/connect-mixin';
 import { store } from '../../redux/store';
-import { fetchUserDetails } from '../../redux/user/actions';
 
-export class User extends connect(store)(PageViewElement) {
+export class User extends connect(store)(PageViewElement) {    
     static get properties() {
         return {
             userDetails: { type: Array }
@@ -17,18 +16,20 @@ export class User extends connect(store)(PageViewElement) {
         this.userDetails = state.user.userDetails;
     }
 
-    firstUpdated(){
-        store.dispatch(fetchUserDetails('tcsl_armor'));
-    }
-
     render() {
+        const { userDetails } = this;        
+
         return html`
       <!-- Styles -->
       ${PageStyles}
       
       <!-- Content -->
       <section>
-        <h2>User</h2>        
+        <h2>${userDetails.id}</h2>
+        <div class="user-details">
+            <span><b>Karma:</b> ${userDetails.karma}</span>
+            <span><b>Created:</b> ${userDetails.created}</span>
+        </div>      
       </section>
     `;
     }
