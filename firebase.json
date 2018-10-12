@@ -1,16 +1,14 @@
 {
   "hosting": {
-    "public": "build/es5-bundled",
+    "public": "build/es5-bundled/",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "rewrites": [
       {
-        "source": "/hn/**", "function": "hn"
-      },
-      {
-        "source": "!/__/**",
-        "destination": "/index.html"
-      },
-      {
-        "source": "**/!(*.js|*.html|*.css|*.json|*.svg|*.png|*.jpg|*.jpeg)",
+        "source": "**/!(*.*)",
         "destination": "/index.html"
       }
     ],
