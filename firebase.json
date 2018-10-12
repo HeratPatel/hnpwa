@@ -1,13 +1,9 @@
 {
   "hosting": {
     "public": "build/es5-bundled/",
-    "ignore": [
-      "firebase.json",
-      "**/.*"
-    ],
     "rewrites": [
       {
-        "source": "**",
+        "source": "**/!(*.*)",
         "destination": "/index.html"
       }
     ]
