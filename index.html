@@ -104,6 +104,19 @@
   <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   <!-- Built with love using PWA Starter Kit -->
   <script type="module" src="src/index.js" crossorigin></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCAyJRJJYN3_ed1bRnUDrMb2MOF1ri_32I",
+      authDomain: "hnpwa-fcf6b.firebaseapp.com",
+      databaseURL: "https://hnpwa-fcf6b.firebaseio.com",
+      projectId: "hnpwa-fcf6b",
+      storageBucket: "hnpwa-fcf6b.appspot.com",
+      messagingSenderId: "1065550303539"
+    };
+    firebase.initializeApp(config);
+  </script>
 </body>
 
 </html>
