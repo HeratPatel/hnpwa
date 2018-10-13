@@ -7,7 +7,6 @@ import '../../components/item-comment';
 // redux helpers
 import { connect } from 'pwa-helpers/connect-mixin';
 import { store } from '../../redux/store';
-import { fetchItemDetails } from '../../redux/item/actions';
 
 export class Item extends connect(store)(PageViewElement) {
     static get properties() {
@@ -18,10 +17,6 @@ export class Item extends connect(store)(PageViewElement) {
 
     _stateChanged(state) {
         this.itemDetails = state.item.itemDetails;
-    }
-
-    firstUpdated(){
-        store.dispatch(fetchItemDetails(18090651));
     }
 
     render() {
