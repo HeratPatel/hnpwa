@@ -12,7 +12,7 @@
     "build:prpl-server": "polymer build --auto-base-path && gulp prpl-server",
     "build:static": "polymer build",
     "serve:prpl-server": "prpl-server --root server/build",
-    "serve:static": "polymer serve --port 5000 build/es5-bundled",
+    "serve:static": "polymer serve --port 5000 build/esm-bundled",
     "test": "npm run test:unit && npm run test:integration",
     "test:integration": "mocha test/integration --timeout=10000",
     "test:unit": "polymer test --module-resolution=node --npm",
