@@ -14,7 +14,7 @@ module.exports = {
         },
         {
             urlPattern: /^https:\/\/node-hnapi.herokuapp.com\/news|newest|show|ask|jobs|item|user/,
-            handler: 'fastest'
+            handler: 'networkFirst'
         }
     ]
 };
