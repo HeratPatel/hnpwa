@@ -20,8 +20,12 @@ export class Header extends connect(store)(LitElement) {
         };
     }
 
-    _stateChanged(state) {
+    stateChanged(state) {
         this.isDrawerOpened = state.app.drawerOpened;
+    }
+
+    updateDrawerState(){
+        store.dispatch(updateDrawerState(true));
     }
 
     render() {
@@ -33,8 +37,7 @@ export class Header extends connect(store)(LitElement) {
           <!-- Header -->
           <app-header fixed reveals effects="waterfall">
             <app-toolbar class="toolbar-top">
-              <button class="menu-btn" title="Menu" @click="${() =>
-        store.dispatch(updateDrawerState(true))}">${menuIcon}</button>
+              <button class="menu-btn" title="Menu" @click="${this.updateDrawerState}">${menuIcon}</button>
               <div main-title>${appTitle}</div>
             </app-toolbar>
 

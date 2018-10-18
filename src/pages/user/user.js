@@ -12,7 +12,7 @@ export class User extends connect(store)(PageViewElement) {
         };
     }
 
-    _stateChanged(state) {
+    stateChanged(state) {
         this.userDetails = state.user.userDetails;
     }
 

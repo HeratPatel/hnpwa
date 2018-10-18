@@ -15,7 +15,7 @@ export class Ask extends connect(store)(PageViewElement) {
         };
     }
 
-    _stateChanged(state) {        
+    stateChanged(state) {        
         const pageNo = state.page.ask;
         if(this.page !== undefined && this.page !== pageNo){
             store.dispatch(fetchAskStories(pageNo));

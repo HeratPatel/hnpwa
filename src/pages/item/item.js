@@ -15,7 +15,7 @@ export class Item extends connect(store)(PageViewElement) {
         };
     }
 
-    _stateChanged(state) {
+    stateChanged(state) {
         this.itemDetails = state.item.itemDetails;
     }
 

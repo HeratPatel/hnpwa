@@ -15,7 +15,7 @@ export class New extends connect(store)(PageViewElement) {
         };
     }
 
-    _stateChanged(state) {
+    stateChanged(state) {
         const pageNo = state.page.newest;
         if(this.page !== undefined && this.page !== pageNo){
             store.dispatch(fetchNewStories(pageNo));

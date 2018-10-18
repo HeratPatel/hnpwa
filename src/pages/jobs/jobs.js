@@ -15,7 +15,7 @@ export class Jobs extends connect(store)(PageViewElement) {
         };
     }
 
-    _stateChanged(state) {
+    stateChanged(state) {
         const pageNo = state.page.jobs;
         if(this.page !== undefined && this.page !== pageNo){
             store.dispatch(fetchJobStories(pageNo));

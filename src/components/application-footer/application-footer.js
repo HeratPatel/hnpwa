@@ -15,11 +15,21 @@ export class Footer extends connect(store)(LitElement) {
         };
     }
 
-    _stateChanged(state) {
+    stateChanged(state) {
         const page = state.app.page === 'new' ? 'newest' : state.app.page;
         this.currentPage = page;
         this.pageNo = state.page[page];
         this.items = state[page];              
+    }
+
+    decrementPageCount(){
+        const { currentPage } = this;
+        store.dispatch(decrementPageCount(currentPage))
+    }
+
+    incrementPageCount(){
+        const { currentPage } = this;
+        store.dispatch(incrementPageCount(currentPage))
     }
 
     render() {
@@ -44,9 +54,9 @@ export class Footer extends connect(store)(LitElement) {
         <!-- Content -->
         <footer>
             <div class="pagination">
-                <button .disabled="${isPrevDisabled}" title="Previous_Page" @click="${() => store.dispatch(decrementPageCount(currentPage))}">${prevIcon}</button>
+                <button .disabled="${isPrevDisabled}" title="Previous_Page" @click="${this.decrementPageCount}">${prevIcon}</button>
                 <span>${pageNo}</span>
-                <button .disabled="${isNextDisabled}" title="Next_Page" @click="${() => store.dispatch(incrementPageCount(currentPage))}">${nextIcon}</button>
+                <button .disabled="${isNextDisabled}" title="Next_Page" @click="${this.incrementPageCount}">${nextIcon}</button>
             </div>                        
         </footer>
     `;

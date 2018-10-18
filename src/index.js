@@ -29,7 +29,7 @@ class MyApp extends connect(store)(LitElement) {
         };
     }
 
-    _stateChanged(state) {
+    stateChanged(state) {
         this._page = state.app.page;        
         this._snackbar = state.app.snackbar;
     }

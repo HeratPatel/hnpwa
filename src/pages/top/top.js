@@ -15,7 +15,7 @@ export class Top extends connect(store)(PageViewElement) {
         };
     }
 
-    _stateChanged(state) {
+    stateChanged(state) {
         const pageNo = state.page.top;
         if(this.page !== undefined && this.page !== pageNo){
             store.dispatch(fetchTopStories(pageNo));

@@ -15,7 +15,7 @@ export class Show extends connect(store)(PageViewElement) {
         };
     }
 
-    _stateChanged(state) {
+    stateChanged(state) {
         const pageNo = state.page.show;
         if(this.page !== undefined && this.page !== pageNo){
             store.dispatch(fetchShowStories(pageNo));
