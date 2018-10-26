@@ -20,7 +20,11 @@ import page from '../page/reducer';
 
 // Sets up a Chrome extension for time travel debugging.
 // See https://github.com/zalmoxisus/redux-devtools-extension for more information.
-const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || origCompose;
+let compose = origCompose;
+
+if(window.process.env.NODE_ENV !== 'production'){
+    compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+}
 
 // Initializes the Redux store with a lazyReducerEnhancer (so that you can
 // lazily add reducers after the store has been created) and redux-thunk (so
