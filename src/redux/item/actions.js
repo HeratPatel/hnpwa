@@ -1,13 +1,12 @@
 import types from './types';
 import { API_URI } from '../../constants';
-import { errorHandler } from '../../utils/error-handler';
 
 const storeItemDetails = (itemDetails) => ({
     type: types.STORE_ITEM_DETAILS,
     itemDetails
 });
 
-export const fetchItemDetails = (itemId) => async (dispatch) => {
+export const fetchItemDetails = (itemId) => async (dispatch, getState, errorHandler) => {
     try {
         const response = await fetch(`${API_URI}/item/${itemId}`);
         const data = await response.json();        

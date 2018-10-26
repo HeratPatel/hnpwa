@@ -1,13 +1,12 @@
 import types from './types';
 import { API_URI } from '../../constants';
-import { errorHandler } from '../../utils/error-handler';
 
 const storeNewStories = (newStories) => ({
     type: types.STORE_NEW_STORIES,
     newStories
 });
 
-export const fetchNewStories = (page) => async (dispatch) => {
+export const fetchNewStories = (page) => async (dispatch, getState, errorHandler) => {
     try {
         const response = await fetch(`${API_URI}/newest?page=${page}`);
         const data = await response.json();        

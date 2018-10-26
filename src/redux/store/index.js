@@ -6,6 +6,7 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { lazyReducerEnhancer } from 'pwa-helpers/lazy-reducer-enhancer';
+import { errorHandler } from '../../utils/error-handler';
 
 import app from '../app/reducer';
 import top from '../top/reducer';
@@ -30,7 +31,7 @@ export const store = createStore(
     (state) => state,
     compose(
         lazyReducerEnhancer(combineReducers),
-        applyMiddleware(thunk)
+        applyMiddleware(thunk.withExtraArgument(errorHandler))
     )
 );
 
