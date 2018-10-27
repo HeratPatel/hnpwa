@@ -31,11 +31,9 @@ export class Jobs extends connect(store)(PageViewElement) {
     render() {
         const { jobStories } = this;
 
-        return html`
-      <!-- Styles -->
+        return html`      
       ${PageStyles}
-            
-      <!-- Content -->
+                  
       <section>            
         ${jobStories.length > 0 ? 
         jobStories.map(item => html`

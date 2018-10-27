@@ -4,11 +4,9 @@ import { PageStyles } from '../styles';
 
 export class About extends PageViewElement {
     render() {
-        return html`
-      <!-- Styles -->
+        return html`      
       ${PageStyles}
-      
-      <!-- Content -->
+            
       <section>
         <h2>About</h2>
         <p>This is an example of PWA built using Polymer <a href="https://github.com/Polymer/pwa-starter-kit">pwa-starter-kit</a>.</p>

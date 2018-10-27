@@ -9,10 +9,9 @@ export class SnackBar extends LitElement {
     }
 
     render() {
-        return html`
-        <!-- Styles -->
+        return html`        
         ${SnackBarStyles}
-        <!-- Content -->
+        
         <slot></slot>
       `;
     }

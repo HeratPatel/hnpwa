@@ -31,11 +31,9 @@ export class Top extends connect(store)(PageViewElement) {
     render() {
         const { topStories } = this;
 
-        return html`
-            <!-- Styles -->
+        return html`            
             ${PageStyles}
-            
-            <!-- Content -->
+                        
             <section>                
                     ${topStories.length > 0 ?
         topStories.map(item => html`

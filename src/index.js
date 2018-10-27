@@ -57,14 +57,11 @@ class MyApp extends connect(store)(LitElement) {
 
     render() {
         const { appTitle, _page, _snackbar } = this;
-        return html`
-            <!-- Styles -->
+        return html`            
             ${MainStyles}
-
-            <!-- Header -->
+            
             <application-header currentPage="${_page}" appTitle="${appTitle}"></application-header>
-
-            <!-- Main content -->
+            
             <main role="main" class="main-content">      
                 <about-page class="page" ?active="${_page === 'about'}"></about-page>
                 <ask-page class="page" ?active="${_page === 'ask'}"></ask-page>
@@ -76,11 +73,9 @@ class MyApp extends connect(store)(LitElement) {
                 <user-page class="page" ?active="${_page === 'user'}"></user-page>                    
                 <page-404 class="page" ?active="${_page === '404'}"></page-404>      
             </main>
-            
-            <!-- Footer -->
+                        
             <application-footer></application-footer>
-
-            <!-- Snack Bar -->
+            
             <snack-bar ?active="${_snackbar.status}">${_snackbar.message}</snack-bar>    
         `;
     }   

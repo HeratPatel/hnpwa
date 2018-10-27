@@ -28,10 +28,9 @@ export class ItemComment extends LitElement {
     render(){
         const { id, user, time_ago, content, collapseString, collapsed } = this;
 
-        return html`
-            <!-- Styles -->
+        return html`            
             ${CommentsStyle}
-            <!-- Content -->
+            
             <div class="header">
                 <button class="toggle" @click="${this.toggleCollapse}" title="comment_collapse">${collapseString}</button>
                 <a href="/user/${user}">${user}</a>

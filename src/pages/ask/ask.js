@@ -31,11 +31,9 @@ export class Ask extends connect(store)(PageViewElement) {
     render() {
         const { askStories } = this;        
 
-        return html`
-            <!-- Styles -->
+        return html`            
             ${PageStyles}
-
-            <!-- Content -->
+            
             <section>                
                 ${askStories.length > 0 ? 
         askStories.map(item => html`

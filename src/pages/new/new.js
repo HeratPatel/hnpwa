@@ -31,11 +31,9 @@ export class New extends connect(store)(PageViewElement) {
     render() {
         const { newStories } = this;
 
-        return html`
-            <!-- Styles -->
+        return html`            
             ${PageStyles}
-            
-            <!-- Content -->
+                        
             <section>                
                     ${newStories.length > 0 ?
         newStories.map(item => html`

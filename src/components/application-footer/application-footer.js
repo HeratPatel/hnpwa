@@ -38,20 +38,16 @@ export class Footer extends connect(store)(LitElement) {
         const isNextDisabled = (items && items.length < 30);
         
         if(currentPage === 'user' || currentPage === 'item' || currentPage === 'about'){
-            return html`
-                <!-- Styles -->
-                ${FooterStyles}
-                <!-- Content -->
+            return html`                
+                ${FooterStyles}                
                 <footer>
                     <p>Made with &hearts; by the <a href="https://github.com/HeratPatel">Herat Patel</a>.</p>
                 </footer>
             `;
         }
 
-        return html`
-        <!-- Styles -->
-        ${FooterStyles}
-        <!-- Content -->
+        return html`        
+        ${FooterStyles}        
         <footer>
             <div class="pagination">
                 <button .disabled="${isPrevDisabled}" title="Previous_Page" @click="${this.decrementPageCount}">${prevIcon}</button>

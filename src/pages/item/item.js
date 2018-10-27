@@ -22,12 +22,10 @@ export class Item extends connect(store)(PageViewElement) {
     render() {
         const { itemDetails } = this;
 
-        return html`
-      <!-- Styles -->
+        return html`      
       ${PageStyles}
       ${ItemStyles}
-      
-      <!-- Content -->
+            
       <section>
         <list-item
             id="${itemDetails.id}"

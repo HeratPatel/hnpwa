@@ -30,18 +30,15 @@ export class Header extends connect(store)(LitElement) {
 
     render() {
         const { appTitle, currentPage, isDrawerOpened } = this;
-        return html`
-          <!-- Styles -->
+        return html`          
           ${HeaderStyles}
-
-          <!-- Header -->
+          
           <app-header condenses reveals effects="waterfall">
             <app-toolbar class="toolbar-top">
               <button class="menu-btn" title="Menu" @click="${this.updateDrawerState}">${menuIcon}</button>
               <div main-title>${appTitle}</div>
             </app-toolbar>
-
-            <!-- This gets hidden on a small screen-->
+            
             <nav class="toolbar-list">        
               <a ?selected=${currentPage === 'top'} href="/top">Top</a>
               <a ?selected=${currentPage === 'new'} href="/new">New</a>
@@ -51,8 +48,7 @@ export class Header extends connect(store)(LitElement) {
               <a ?selected=${currentPage === 'about'} href="/about">About</a>
             </nav>
           </app-header>
-
-          <!-- Drawer content -->
+          
           <app-drawer .opened="${isDrawerOpened}"
               @opened-changed="${e =>
         store.dispatch(updateDrawerState(e.target.opened))}">

@@ -19,11 +19,9 @@ export class User extends connect(store)(PageViewElement) {
     render() {
         const { userDetails } = this;        
 
-        return html`
-      <!-- Styles -->
+        return html`      
       ${PageStyles}
-      
-      <!-- Content -->
+            
       <section>
         <h2>${userDetails.id}</h2>
         <div class="user-details">

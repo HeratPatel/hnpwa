@@ -29,11 +29,9 @@ export class ListItem extends LitElement {
             type
         } = this;
 
-        return html`
-            <!-- Styles -->
+        return html`            
             ${ListItemStyle}
-            
-            <!-- Content -->
+                        
             <div class="item">
                 <div class="title">
                     <a href="${url}">${title}</a>

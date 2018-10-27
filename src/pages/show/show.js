@@ -30,11 +30,9 @@ export class Show extends connect(store)(PageViewElement) {
 
     render() {
         const { showStories } = this;
-        return html`
-            <!-- Styles -->
+        return html`            
             ${PageStyles}
-            
-            <!-- Content -->
+                        
             <section>                
                     ${showStories.length > 0 ?
         showStories.map(item => html`
