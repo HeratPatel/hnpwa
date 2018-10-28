@@ -54,6 +54,20 @@
   <meta property="og:site_name" content="my-app">
   <meta property="og:image" content="src/images/manifest/icon-144x144.png" />  
 
+  <!-- Preload root file -->
+  <link rel="preload" as="script" href="/src/pages/top/index.js" crossorigin>
+
+  <!-- Prefetch documents might visit near future -->
+  <link rel="Prefetch" href="/src/pages/404/index.js" crossorigin>
+  <link rel="Prefetch" href="/src/pages/about/index.js" crossorigin>
+  <link rel="Prefetch" href="/src/pages/ask/index.js" crossorigin>
+  <link rel="Prefetch" href="/src/pages/item/index.js" crossorigin>
+  <link rel="Prefetch" href="/src/pages/jobs/index.js" crossorigin>
+  <link rel="Prefetch" href="/src/pages/new/index.js" crossorigin>
+  <link rel="Prefetch" href="/src/pages/show/index.js" crossorigin>
+  <link rel="Prefetch" href="/src/pages/top/index.js" crossorigin>
+  <link rel="Prefetch" href="/src/pages/user/index.js" crossorigin>
+
   <!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 
