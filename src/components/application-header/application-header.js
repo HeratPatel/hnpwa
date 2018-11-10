@@ -13,8 +13,7 @@ import '@polymer/app-layout/app-scroll-effects/effects/waterfall';
 
 export class Header extends connect(store)(LitElement) {
     static get properties() {
-        return {
-            appTitle: { type: String },
+        return {            
             currentPage: { type: String },
             isDrawerOpened: { type: Boolean }
         };
@@ -29,14 +28,14 @@ export class Header extends connect(store)(LitElement) {
     }
 
     render() {
-        const { appTitle, currentPage, isDrawerOpened } = this;
+        const { currentPage, isDrawerOpened } = this;
         return html`          
           ${HeaderStyles}
           
           <app-header condenses reveals effects="waterfall">
             <app-toolbar class="toolbar-top">
               <button class="menu-btn" title="Menu" @click="${this.updateDrawerState}">${menuIcon}</button>
-              <div main-title>${appTitle}</div>
+              <div main-title>${currentPage}</div>
             </app-toolbar>
             
             <nav class="toolbar-list">        

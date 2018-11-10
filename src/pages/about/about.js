@@ -7,8 +7,7 @@ export class About extends PageViewElement {
         return html`      
       ${PageStyles}
             
-      <section>
-        <h2>About</h2>
+      <section>        
         <p>This is an example of PWA built using Polymer <a href="https://github.com/Polymer/pwa-starter-kit">pwa-starter-kit</a>.</p>
         <p>Made with kindness in &hearts; India.</p>
       </section>
