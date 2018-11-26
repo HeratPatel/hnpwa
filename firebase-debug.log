@@ -70,3 +70,55 @@
 [debug] [2018-11-26T16:39:55.736Z] [hosting][hash queue][FINAL]
 [debug] [2018-11-26T16:39:55.736Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/hnpwa-fcf6b/versions/ad7a829f71197b1b:populateFiles  
  <request body omitted>
+[debug] [2018-11-26T16:39:58.547Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:39:58.560Z] [hosting][populate queue][FINAL]
+[debug] [2018-11-26T16:39:58.560Z] [hosting] uploads queued: 10
+[debug] [2018-11-26T16:40:02.041Z] [hosting][upload queue][FINAL]
+[info] ✔  hosting[hnpwa-fcf6b]: file upload complete
+[debug] [2018-11-26T16:40:02.043Z] [hosting] deploy completed after 6519ms
+[debug] [2018-11-26T16:40:02.381Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/hnpwa-fcf6b/locations/-/functions  
+ 
+[debug] [2018-11-26T16:40:03.175Z] <<< HTTP RESPONSE 200
+[info] i  functions: updating Node.js 6 function app(us-central1)...
+[debug] [2018-11-26T16:40:03.181Z] Trigger is:  {"httpsTrigger":{}}
+[debug] [2018-11-26T16:40:03.183Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/hnpwa-fcf6b/locations/us-central1/functions/app {"updateMask":"sourceUploadUrl,name,labels,httpsTrigger"} 
+
+[debug] [2018-11-26T16:40:04.191Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:04.193Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/hnpwa-fcf6b/locations/-/functions  
+ 
+[debug] [2018-11-26T16:40:04.900Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:04.904Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:05.339Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:07.343Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:07.701Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:09.704Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:10.189Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:12.193Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:12.777Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:14.781Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:15.238Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:17.242Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:17.677Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:19.679Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:20.123Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:22.126Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:22.590Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:24.593Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:25.046Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:27.049Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:27.668Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:29.670Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
+[debug] [2018-11-26T16:40:30.484Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-26T16:40:32.487Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/aG5wd2EtZmNmNmIvdXMtY2VudHJhbDEvYXBwL3J6UWJ0M1hkZUQw  
+ 
