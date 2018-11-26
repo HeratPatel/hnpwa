@@ -1,10 +1,29 @@
 {
   "hosting": {
-    "public": "build/esm-bundled/",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*"
+    ],
     "rewrites": [
       {
-        "source": "**/!(*.*)",
-        "destination": "/index.html"
+        "source": "**",
+        "function": "app"
+      }
+    ],
+    "headers": [
+      {
+        "source" : "**/service-worker.js",
+        "headers" : [
+          {
+            "key" : "Service-Worker-Allowed",
+            "value" : "/"
+          },
+          {
+            "key" : "Cache-Control",
+            "value" : "no-cache"
+          }
+        ]
       }
     ]
   }
