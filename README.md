@@ -1,4 +1,6 @@
-# HNPWA - PWA-Starter-Kit [Polymer]
+# HNPWA - PWA-Starter-Kit
+
+![Alt text](light_house_score.png?raw=true "Title")
 
 #### Light-house score: 100/100
 #### Framework/UI libraries: LitElement and LitHtml
