@@ -1,8 +1,5 @@
 module.exports = {
-    staticFileGlobs: [
-        'manifest.json',
-        'src/**/*',
-    ],
+    staticFileGlobs: ['manifest.json', 'src/**/*'],
     runtimeCaching: [
         {
             urlPattern: /\/@webcomponents\/webcomponentsjs\//,
@@ -14,7 +11,7 @@ module.exports = {
         },
         {
             urlPattern: /^https:\/\/node-hnapi.herokuapp.com\/news|newest|show|ask|jobs|item|user/,
-            handler: 'networkFirst'
+            handler: 'fastest'
         }
     ]
 };
