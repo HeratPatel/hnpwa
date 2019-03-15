@@ -51,6 +51,69 @@
             "value" : "max-age=31536000"
           }
         ]
+      },
+      {
+        "source" : "https://node-hnapi.herokuapp.com/news",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source" : "https://node-hnapi.herokuapp.com/newest",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source" : "https://node-hnapi.herokuapp.com/show",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source" : "https://node-hnapi.herokuapp.com/ask",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source" : "https://node-hnapi.herokuapp.com/jobs",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source" : "https://node-hnapi.herokuapp.com/item",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source" : "https://node-hnapi.herokuapp.com/user",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "max-age=31536000"
+          }
+        ]
       }
     ]
   }
