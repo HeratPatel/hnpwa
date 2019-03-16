@@ -1,4 +1,4 @@
-import { html } from '@polymer/lit-element';
+import { html } from 'lit-element';
 import { PageViewElement } from '../../utils/page-view-elemet';
 import { PageStyles } from '../styles';
 import '../../components/list-item';
@@ -8,54 +8,56 @@ import { store } from '../../redux/store';
 import { fetchAskStories } from '../../redux/ask/actions';
 
 export class Ask extends connect(store)(PageViewElement) {
-    static get properties(){
+    static get properties() {
         return {
             askStories: { type: Array },
-            page: { type: Number }            
+            page: { type: Number }
         };
     }
 
-    stateChanged(state) {        
+    static get styles() {
+        return [PageStyles];
+    }
+
+    stateChanged(state) {
         const pageNo = state.page.ask;
-        if(this.page !== undefined && this.page !== pageNo){
+        if (this.page !== undefined && this.page !== pageNo) {
             store.dispatch(fetchAskStories(pageNo));
-        }      
+        }
         this.askStories = state.ask;
         this.page = pageNo;
     }
 
-    firstUpdated(){        
+    firstUpdated() {
         store.dispatch(fetchAskStories(this.page));
     }
 
     render() {
-        const { askStories } = this;        
+        const { askStories } = this;
 
-        return html`            
-            ${PageStyles}
-            
-            <section>                
-                ${askStories.length > 0 ? 
-        askStories.map(item => html`
-                        <list-item
-                            id="${item.id}"
-                            title="${item.title}"
-                            points="${item.points}"
-                            user="${item.user}"
-                            time_ago="${item.time_ago}"
-                            comments_count="${item.comments_count}"
-                            url="${`/item/${item.url.split('id=')[1]}`}"
-                            domain="${item.domain || ''}"
-                            type="${item.type}"
-                        >
-                        </list-item>
-                    `)
-        :
-        html`
-                        <div>No Content</div>
-                    `
-}                
-            </section>                               
-        `;
+        return html`
+      <section>
+        ${askStories.length > 0
+        ? askStories.map(
+            item => html`
+                <list-item
+                  id="${item.id}"
+                  title="${item.title}"
+                  points="${item.points}"
+                  user="${item.user}"
+                  time_ago="${item.time_ago}"
+                  comments_count="${item.comments_count}"
+                  url="${`/item/${item.url.split('id=')[1]}`}"
+                  domain="${item.domain || ''}"
+                  type="${item.type}"
+                >
+                </list-item>
+              `
+        )
+        : html`
+              <div>No Content</div>
+            `}
+      </section>
+    `;
     }
 }

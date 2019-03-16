@@ -9,8 +9,8 @@
   "scripts": {
     "start": "polymer serve",
     "build": "npm run build:prpl-server && npm run build:static",
-    "build:prpl-server": "polymer build --auto-base-path && gulp prpl-server",
     "build:static": "polymer build",
+    "build:prpl-server":  "polymer build --auto-base-path && gulp prpl-server",
     "build:firebase": "polymer build --auto-base-path && gulp firebase",
     "serve:prpl-server": "prpl-server --root server/build",
     "serve:static": "polymer serve --port 5000 build/esm-bundled",
@@ -23,15 +23,16 @@
   },
   "dependencies": {
     "@polymer/app-layout": "^3.0.0",
-    "@polymer/lit-element": "^0.6.2",
-    "@polymer/polymer": "^3.0.0",
-    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "@polymer/polymer": "^3.1.0",
+    "@webcomponents/webcomponentsjs": "^2.2.0",
+    "lit-element": "^2.0.1",
     "pwa-helpers": "^0.9.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "reselect": "^3.0.1"
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
+    "@polymer/test-fixture": "^4.0.2",
     "axe-core": "^3.0.0",
     "babel-eslint": "^9.0.0",
     "chai": "^4.1.2",
@@ -42,10 +43,10 @@
     "gulp-replace": "^1.0.0",
     "mocha": "^5.2.0",
     "pixelmatch": "^4.0.2",
-    "polymer-cli": "^1.7.6",
+    "polymer-cli": "^1.9.3",
     "polyserve": "^0.27.0",
-    "prpl-server": "^1.2.0",
+    "prpl-server": "^1.4.0",
     "puppeteer": "^1.5.0",
-    "wct-browser-legacy": "^1.0.1"
+    "wct-mocha": "^1.0.0"
   }
 }

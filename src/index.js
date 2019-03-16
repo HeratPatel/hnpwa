@@ -1,4 +1,4 @@
-import { LitElement, html } from '@polymer/lit-element';
+import { LitElement, html } from 'lit-element';
 import { setPassiveTouchGestures } from '@polymer/polymer/lib/utils/settings';
 import { connect } from 'pwa-helpers/connect-mixin';
 import { installMediaQueryWatcher } from 'pwa-helpers/media-query';
@@ -25,12 +25,16 @@ class MyApp extends connect(store)(LitElement) {
         return {
             appTitle: { type: String },
             _page: { type: String },
-            _snackbar: { type: Object }            
+            _snackbar: { type: Object }
         };
     }
 
+    static get styles() {
+        return [MainStyles];
+    }
+
     stateChanged(state) {
-        this._page = state.app.page;        
+        this._page = state.app.page;
         this._snackbar = state.app.snackbar;
     }
 
@@ -57,28 +61,29 @@ class MyApp extends connect(store)(LitElement) {
 
     render() {
         const { appTitle, _page, _snackbar } = this;
-        return html`            
-            ${MainStyles}
-            
-            <application-header currentPage="${_page}" appTitle="${appTitle}"></application-header>
-            
-            <main role="main" class="main-content">      
-                <about-page class="page" ?active="${_page === 'about'}"></about-page>
-                <ask-page class="page" ?active="${_page === 'ask'}"></ask-page>
-                <jobs-page class="page" ?active="${_page === 'jobs'}"></jobs-page>
-                <new-page class="page" ?active="${_page === 'new'}"></new-page>
-                <show-page class="page" ?active="${_page === 'show'}"></show-page>
-                <top-page class="page" ?active="${_page === 'top'}"></top-page>
-                <item-page class="page" ?active="${_page === 'item'}"></item-page>
-                <user-page class="page" ?active="${_page === 'user'}"></user-page>                    
-                <page-404 class="page" ?active="${_page === '404'}"></page-404>      
-            </main>
-                        
-            <application-footer></application-footer>
-            
-            <snack-bar ?active="${_snackbar.status}">${_snackbar.message}</snack-bar>    
-        `;
-    }   
+        return html`
+      <application-header
+        currentPage="${_page}"
+        appTitle="${appTitle}"
+      ></application-header>
+
+      <main role="main" class="main-content">
+        <about-page class="page" ?active="${_page === 'about'}"></about-page>
+        <ask-page class="page" ?active="${_page === 'ask'}"></ask-page>
+        <jobs-page class="page" ?active="${_page === 'jobs'}"></jobs-page>
+        <new-page class="page" ?active="${_page === 'new'}"></new-page>
+        <show-page class="page" ?active="${_page === 'show'}"></show-page>
+        <top-page class="page" ?active="${_page === 'top'}"></top-page>
+        <item-page class="page" ?active="${_page === 'item'}"></item-page>
+        <user-page class="page" ?active="${_page === 'user'}"></user-page>
+        <page-404 class="page" ?active="${_page === '404'}"></page-404>
+      </main>
+
+      <application-footer></application-footer>
+
+      <snack-bar ?active="${_snackbar.status}">${_snackbar.message}</snack-bar>
+    `;
+    }
 }
 
 window.customElements.define('my-app', MyApp);

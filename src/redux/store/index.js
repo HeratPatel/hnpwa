@@ -22,7 +22,7 @@ import page from '../page/reducer';
 // See https://github.com/zalmoxisus/redux-devtools-extension for more information.
 let compose = origCompose;
 
-if(window.process.env.NODE_ENV !== 'production'){
+if (window.process.env.NODE_ENV !== 'production') {
     compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 }
 
@@ -32,7 +32,7 @@ if(window.process.env.NODE_ENV !== 'production'){
 // section of the wiki for more details:
 // https://github.com/Polymer/pwa-starter-kit/wiki/4.-Redux-and-state-management
 export const store = createStore(
-    (state) => state,
+    state => state,
     compose(
         lazyReducerEnhancer(combineReducers),
         applyMiddleware(thunk.withExtraArgument(errorHandler))

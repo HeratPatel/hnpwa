@@ -1,3 +1,13 @@
+<!--
+@license
+Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,58 +22,58 @@
     </script>
 
     <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-    <script src="../../node_modules/wct-browser-legacy/browser.js"></script>
-
-    <!-- Import the element to test -->
-    <script type="module" src="../../src/pages/welcome/index.js"></script>
-    <script type="module" src="../../src/pages/counter/index.js"></script>
-    <script type="module" src="../../src/pages/shoppingCart/index.js"></script>
-    <script type="module" src="../../src/pages/404/index.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="../../node_modules/wct-mocha/wct-mocha.js"></script>
   </head>
   <body>
-    <test-fixture id="welcome">
+    <test-fixture id="view1">
       <template>
-        <welcome-page active></welcome-page>
+        <my-view1 active></my-view1>
       </template>
     </test-fixture>
-    <test-fixture id="counter">
+    <test-fixture id="view2">
       <template>
-        <counter-page active></counter-page>
+        <my-view2 active></my-view2>
       </template>
     </test-fixture>
-    <test-fixture id="shoppingCart">
+    <test-fixture id="view3">
       <template>
-        <shopping-cart active></shopping-cart>
+        <my-view3 active></my-view3>
       </template>
     </test-fixture>
-    <test-fixture id="404">
+    <test-fixture id="view404">
       <template>
-        <page-404 active></page-404>
+        <my-view404 active></my-view404>
       </template>
     </test-fixture>
 
     <script type="module">
+      import '@polymer/test-fixture';
       import 'axe-core/axe.min.js';
       import {axeReport} from 'pwa-helpers/axe-report.js';
+      import '../../src/components/my-view1.js';
+      import '../../src/components/my-view2.js';
+      import '../../src/components/my-view3.js';
+      import '../../src/components/my-view404.js';
 
       suite('views a11y tests', function() {
-        test('welcome', function() {
-          const el = fixture('welcome');
+        test('my-view1', function() {
+          const el = fixture('view1');
           return axeReport(el);
         });
 
-        test('counter', function() {
-          const el = fixture('counter');
+        test('my-view2', function() {
+          const el = fixture('view2');
           return axeReport(el);
         });
 
-        test('shoppingCart', function() {
-          const el = fixture('shoppingCart');
+        test('my-view3', function() {
+          const el = fixture('view3');
           return axeReport(el);
         });
 
-        test('page-404', function() {
-          const el = fixture('404');
+        test('my-view404', function() {
+          const el = fixture('view404');
           return axeReport(el);
         });
       });

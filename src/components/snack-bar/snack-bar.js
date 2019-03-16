@@ -1,4 +1,4 @@
-import { LitElement, html } from '@polymer/lit-element';
+import { LitElement, html } from 'lit-element';
 import { SnackBarStyles } from './styles';
 
 export class SnackBar extends LitElement {
@@ -8,11 +8,13 @@ export class SnackBar extends LitElement {
         };
     }
 
+    static get styles() {
+        return [SnackBarStyles];
+    }
+
     render() {
-        return html`        
-        ${SnackBarStyles}
-        
-        <slot></slot>
-      `;
+        return html`
+      <slot></slot>
+    `;
     }
 }

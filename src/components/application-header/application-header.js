@@ -1,4 +1,4 @@
-import { LitElement, html } from '@polymer/lit-element';
+import { LitElement, html } from 'lit-element';
 import { menuIcon } from '../../icons';
 import { HeaderStyles } from './styles';
 // redux helpers
@@ -13,53 +13,63 @@ import '@polymer/app-layout/app-scroll-effects/effects/waterfall';
 
 export class Header extends connect(store)(LitElement) {
     static get properties() {
-        return {            
+        return {
             currentPage: { type: String },
             isDrawerOpened: { type: Boolean }
         };
+    }
+
+    static get styles() {
+        return [HeaderStyles];
     }
 
     stateChanged(state) {
         this.isDrawerOpened = state.app.drawerOpened;
     }
 
-    updateDrawerState(){
+    updateDrawerState() {
         store.dispatch(updateDrawerState(true));
     }
 
     render() {
         const { currentPage, isDrawerOpened } = this;
-        return html`          
-          ${HeaderStyles}
-          
-          <app-header condenses reveals effects="waterfall">
-            <app-toolbar class="toolbar-top">
-              <button class="menu-btn" title="Menu" @click="${this.updateDrawerState}">${menuIcon}</button>
-              <div main-title>${currentPage}</div>
-            </app-toolbar>
-            
-            <nav class="toolbar-list">        
-              <a ?selected=${currentPage === 'top'} href="/top">Top</a>
-              <a ?selected=${currentPage === 'new'} href="/new">New</a>
-              <a ?selected=${currentPage === 'show'} href="/show">Show</a>
-              <a ?selected=${currentPage === 'ask'} href="/ask">Ask</a>
-              <a ?selected=${currentPage === 'jobs'} href="/jobs">Jobs</a>
-              <a ?selected=${currentPage === 'about'} href="/about">About</a>
-            </nav>
-          </app-header>
-          
-          <app-drawer .opened="${isDrawerOpened}"
-              @opened-changed="${e =>
-        store.dispatch(updateDrawerState(e.target.opened))}">
-            <nav class="drawer-list">        
-              <a ?selected=${currentPage === 'top'} href="/top">Top</a>
-              <a ?selected=${currentPage === 'new'} href="/new">New</a>
-              <a ?selected=${currentPage === 'show'} href="/show">Show</a>
-              <a ?selected=${currentPage === 'ask'} href="/ask">Ask</a>
-              <a ?selected=${currentPage === 'jobs'} href="/jobs">Jobs</a>
-              <a ?selected=${currentPage === 'about'} href="/about">About</a>
-            </nav>
-          </app-drawer>
-        `;
+        return html`
+      <app-header condenses reveals effects="waterfall">
+        <app-toolbar class="toolbar-top">
+          <button
+            class="menu-btn"
+            title="Menu"
+            @click="${this.updateDrawerState}"
+          >
+            ${menuIcon}
+          </button>
+          <div main-title>${currentPage}</div>
+        </app-toolbar>
+
+        <nav class="toolbar-list">
+          <a ?selected=${currentPage === 'top'} href="/top">Top</a>
+          <a ?selected=${currentPage === 'new'} href="/new">New</a>
+          <a ?selected=${currentPage === 'show'} href="/show">Show</a>
+          <a ?selected=${currentPage === 'ask'} href="/ask">Ask</a>
+          <a ?selected=${currentPage === 'jobs'} href="/jobs">Jobs</a>
+          <a ?selected=${currentPage === 'about'} href="/about">About</a>
+        </nav>
+      </app-header>
+
+      <app-drawer
+        .opened="${isDrawerOpened}"
+        @opened-changed="${e =>
+        store.dispatch(updateDrawerState(e.target.opened))}"
+      >
+        <nav class="drawer-list">
+          <a ?selected=${currentPage === 'top'} href="/top">Top</a>
+          <a ?selected=${currentPage === 'new'} href="/new">New</a>
+          <a ?selected=${currentPage === 'show'} href="/show">Show</a>
+          <a ?selected=${currentPage === 'ask'} href="/ask">Ask</a>
+          <a ?selected=${currentPage === 'jobs'} href="/jobs">Jobs</a>
+          <a ?selected=${currentPage === 'about'} href="/about">About</a>
+        </nav>
+      </app-drawer>
+    `;
     }
 }
