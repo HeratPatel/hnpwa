@@ -55,7 +55,7 @@
   <meta property="og:image" content="src/images/manifest/icon-144x144.png" />  
   
   <!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin lazyload>
 
   <script>
     // Load and register pre-caching Service Worker
@@ -100,11 +100,12 @@
   <my-app appTitle="hnpwa"></my-app>
   <noscript>
     Please enable JavaScript to view this website.
-  </noscript>
-  <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
-  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" type="module"></script>
+  </noscript>  
   <!-- Built with love using PWA Starter Kit -->
-  <script type="module" src="src/index.js" crossorigin></script>
+  <script type="module" src="src/index.js" crossorigin async="true"></script>  
+  <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
+  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" type="module" async="true"></script> 
+  <!-- Load Firebase Application -->
   <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-app.js"></script>
   <script>
     // Initialize Firebase
