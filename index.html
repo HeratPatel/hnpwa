@@ -52,10 +52,10 @@
   <meta name="twitter:site" content="@username">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="my-app">
-  <meta property="og:image" content="src/images/manifest/icon-144x144.png" />  
-  
+  <meta property="og:image" content="src/images/manifest/icon-144x144.png" />
+
   <!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin lazyload>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 
   <script>
     // Load and register pre-caching Service Worker
@@ -75,36 +75,37 @@
   <!-- Add any global styles for body, document, etc. -->
   <style>
     @font-face {
-        font-family: 'Pacifico';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/Q_Z9mv4hySLTMoMjnk_rCXYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2');
-        /* THe browser draws the text immediately in the fallback font if the font
+      font-family: 'Pacifico';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/Q_Z9mv4hySLTMoMjnk_rCXYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2');
+      /* THe browser draws the text immediately in the fallback font if the font
            isn't loaded, then swaps it with the webfont when it eventually loads
            See: https://developers.google.com/web/updates/2016/02/font-display
         */
-        font-display: swap;
-      }
-      body {
-        margin: 0;
-        /* This is a font-stack that tries to use the system-default sans-serifs first */
-        font-family: Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-        line-height: 1.5;
-        min-height: 100vh;
-        -webkit-font-smoothing: antialiased;
-      }
-    </style>
+      font-display: swap;
+    }
+
+    body {
+      margin: 0;
+      /* This is a font-stack that tries to use the system-default sans-serifs first */
+      font-family: Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
 </head>
 
 <body>
   <my-app appTitle="hnpwa"></my-app>
   <noscript>
     Please enable JavaScript to view this website.
-  </noscript>  
+  </noscript>
   <!-- Built with love using PWA Starter Kit -->
-  <script type="module" src="src/index.js" crossorigin async="true"></script>  
+  <script type="module" src="src/index.js" crossorigin></script>
   <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
-  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" type="module" async="true"></script> 
+  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" type="module"></script>
   <!-- Load Firebase Application -->
   <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-app.js"></script>
   <script>
