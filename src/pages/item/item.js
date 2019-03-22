@@ -20,7 +20,7 @@ export class Item extends connect(store)(PageViewElement) {
     }
 
     stateChanged(state) {
-        this.itemDetails = state.item.itemDetails;
+        this.itemDetails = state.page.itemDetails;
     }
 
     render() {

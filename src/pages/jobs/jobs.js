@@ -1,11 +1,12 @@
 import { html } from 'lit-element';
 import { PageViewElement } from '../../utils/page-view-elemet';
 import { PageStyles } from '../styles';
+import { PAGES } from '../../constants';
 import '../../components/list-item';
 // redux helpers
 import { connect } from 'pwa-helpers/connect-mixin';
 import { store } from '../../redux/store';
-import { fetchJobStories } from '../../redux/jobs/actions';
+import { fetchPageStories } from '../../redux/page/actions';
 
 export class Jobs extends connect(store)(PageViewElement) {
     static get properties() {
@@ -22,14 +23,14 @@ export class Jobs extends connect(store)(PageViewElement) {
     stateChanged(state) {
         const pageNo = state.page.jobs;
         if (this.page !== undefined && this.page !== pageNo) {
-            store.dispatch(fetchJobStories(pageNo));
+            store.dispatch(fetchPageStories(pageNo, PAGES.JOBS));
         }
-        this.jobStories = state.jobs;
+        this.jobStories = state.page.stories;
         this.page = pageNo;
     }
 
     firstUpdated() {
-        store.dispatch(fetchJobStories(this.page));
+        store.dispatch(fetchPageStories(this.page, PAGES.JOBS));
     }
 
     render() {

@@ -17,7 +17,7 @@ export class User extends connect(store)(PageViewElement) {
     }
 
     stateChanged(state) {
-        this.userDetails = state.user.userDetails;
+        this.userDetails = state.page.userDetails;
     }
 
     render() {

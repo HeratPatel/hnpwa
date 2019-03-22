@@ -1,11 +1,12 @@
 import { html } from 'lit-element';
 import { PageViewElement } from '../../utils/page-view-elemet';
 import { PageStyles } from '../styles';
+import { PAGES } from '../../constants';
 import '../../components/list-item';
 // redux helpers
 import { connect } from 'pwa-helpers/connect-mixin';
 import { store } from '../../redux/store';
-import { fetchTopStories } from '../../redux/top/actions';
+import { fetchPageStories } from '../../redux/page/actions';
 
 export class Top extends connect(store)(PageViewElement) {
     static get properties() {
@@ -22,14 +23,14 @@ export class Top extends connect(store)(PageViewElement) {
     stateChanged(state) {
         const pageNo = state.page.top;
         if (this.page !== undefined && this.page !== pageNo) {
-            store.dispatch(fetchTopStories(pageNo));
+            store.dispatch(fetchPageStories(pageNo, PAGES.TOP));
         }
-        this.topStories = state.top;
+        this.topStories = state.page.stories;
         this.page = pageNo;
     }
 
     firstUpdated() {
-        store.dispatch(fetchTopStories(this.page));
+        store.dispatch(fetchPageStories(this.page, PAGES.TOP));
     }
 
     render() {

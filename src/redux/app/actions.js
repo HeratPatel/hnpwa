@@ -1,6 +1,6 @@
 import types from './types';
-import { fetchUserDetails } from '../../redux/user/actions';
-import { fetchItemDetails } from '../../redux/item/actions';
+import { PAGES } from '../../constants';
+import { fetchPageStories } from '../../redux/page/actions';
 
 /**
  * updatePage: Updates the Page
@@ -17,7 +17,7 @@ const updatePage = page => {
 /**
  * showSnackbar: Shows Snackbar from bottom
  */
-export const showSnackbar = (snackbar) => dispatch => {
+export const showSnackbar = snackbar => dispatch => {
     let snackbarTimer;
     dispatch({
         type: types.OPEN_SNACKBAR,
@@ -25,13 +25,14 @@ export const showSnackbar = (snackbar) => dispatch => {
     });
     clearTimeout(snackbarTimer);
     snackbarTimer = setTimeout(
-        () => dispatch({ 
-            type: types.CLOSE_SNACKBAR,
-            snackbar: {
-                status: false,
-                message: ''
-            }
-        }),
+        () =>
+            dispatch({
+                type: types.CLOSE_SNACKBAR,
+                snackbar: {
+                    status: false,
+                    message: ''
+                }
+            }),
         3000
     );
 };
@@ -43,16 +44,20 @@ export const showSnackbar = (snackbar) => dispatch => {
 export const updateOffline = offline => (dispatch, getState) => {
     // Show the snackbar, unless this is the first load of the page.
     if (getState().app.offline !== undefined) {
-        if(offline){
-            dispatch(showSnackbar({
-                status: true,
-                message: 'You are now offline.'
-            }));
+        if (offline) {
+            dispatch(
+                showSnackbar({
+                    status: true,
+                    message: 'You are now offline.'
+                })
+            );
         } else {
-            dispatch(showSnackbar({
-                status: true,
-                message: 'You are now online.'
-            }));
+            dispatch(
+                showSnackbar({
+                    status: true,
+                    message: 'You are now online.'
+                })
+            );
         }
     }
     dispatch({
@@ -88,15 +93,35 @@ export const updateDrawerState = opened => (dispatch, getState) => {
  * navigate: navigates(loads) page for given path
  * @param {string} path
  */
-export const navigate = path => dispatch => {
+export const navigate = path => (dispatch, getState) => {
     const page = path === '/' ? 'top' : path.slice(1);
     const primarySlug = page.split('/')[0];
     const secondarySlug = page.split('/')[1];
-    if(primarySlug === 'user'){
-        dispatch(fetchUserDetails(secondarySlug));
-    }
-    if(primarySlug === 'item'){                
-        dispatch(fetchItemDetails(secondarySlug));
+    if (primarySlug === 'item') {
+        dispatch(fetchPageStories(secondarySlug, PAGES.ITEM));
+    } else if (primarySlug === 'user') {
+        dispatch(fetchPageStories(secondarySlug, PAGES.USER));
+    } else if (
+        primarySlug === 'top' ||
+    primarySlug === 'new' ||
+    primarySlug === 'show' ||
+    primarySlug === 'ask' ||
+    primarySlug === 'jobs'
+    ) {
+        let slug_page = '';
+        if (primarySlug === 'top') {
+            slug_page = PAGES.TOP;
+        } else if (primarySlug === 'new') {
+            slug_page = PAGES.NEWEST;
+        } else {
+            slug_page = primarySlug;
+        }
+        dispatch(
+            fetchPageStories(
+                getState().page[primarySlug === 'new' ? 'newest' : primarySlug],
+                slug_page
+            )
+        );
     }
     dispatch(loadPage(primarySlug)); // Loads Page
     dispatch(updateDrawerState(false)); // Close Drawer if open
@@ -106,7 +131,7 @@ export const navigate = path => dispatch => {
  * loadPage: Matches the page and dispatch updatePage action
  * @param {string} page
  */
-const loadPage = page => dispatch => {    
+const loadPage = page => dispatch => {
     switch (page) {
     case 'about':
       import('../../pages/about/index.js');
@@ -127,10 +152,10 @@ const loadPage = page => dispatch => {
       import('../../pages/top/index.js');
         break;
     case 'item':
-        import('../../pages/item/index.js');
+      import('../../pages/item/index.js');
         break;
     case 'user':
-        import('../../pages/user/index.js');
+      import('../../pages/user/index.js');
         break;
     default:
         page = '404';

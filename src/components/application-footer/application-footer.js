@@ -26,7 +26,7 @@ export class Footer extends connect(store)(LitElement) {
         const page = state.app.page === 'new' ? 'newest' : state.app.page;
         this.currentPage = page;
         this.pageNo = state.page[page];
-        this.items = state[page];
+        this.items = state.page.stories;
     }
 
     decrementPageCount() {
