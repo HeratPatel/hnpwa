@@ -15,9 +15,9 @@ import page from './page/reducer';
 // See https://github.com/zalmoxisus/redux-devtools-extension for more information.
 let compose = origCompose;
 
-// if (window.process.env.NODE_ENV !== 'production') {
-compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-// }
+if (window.process.env.NODE_ENV !== 'production') {
+    compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+}
 
 // Initializes the Redux store with a lazyReducerEnhancer (so that you can
 // lazily add reducers after the store has been created) and redux-thunk (so
