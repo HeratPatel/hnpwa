@@ -12,4 +12,4 @@
 #### Hosting: firebase hosting
  
 ## License
-[MIT] (https://github.com/HeratPatel/hnpwa/blob/master/LICENSE)
+[MIT](https://github.com/HeratPatel/hnpwa/blob/master/LICENSE)
