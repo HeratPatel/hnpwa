@@ -47,7 +47,8 @@ export class Footer extends connect(store)(LitElement) {
         if (
             currentPage === 'user' ||
       currentPage === 'item' ||
-      currentPage === 'about'
+      currentPage === 'about' ||
+      currentPage === 'settings'
         ) {
             return html`
         <footer>

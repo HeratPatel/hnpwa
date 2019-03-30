@@ -61,6 +61,7 @@ class MyApp extends connect(store)(LitElement) {
 
     render() {
         const { appTitle, _page, _snackbar } = this;
+
         return html`
       <application-header
         currentPage="${_page}"
@@ -76,6 +77,10 @@ class MyApp extends connect(store)(LitElement) {
         <top-page class="page" ?active="${_page === 'top'}"></top-page>
         <item-page class="page" ?active="${_page === 'item'}"></item-page>
         <user-page class="page" ?active="${_page === 'user'}"></user-page>
+        <settings-page
+          class="page"
+          ?active="${_page === 'settings'}"
+        ></settings-page>
         <page-404 class="page" ?active="${_page === '404'}"></page-404>
       </main>
 

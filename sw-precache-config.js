@@ -1,4 +1,5 @@
 module.exports = {
+    importScripts: ['fcm-sw.js'],
     staticFileGlobs: ['manifest.json', 'src/**/*'],
     runtimeCaching: [
         {

@@ -83,6 +83,10 @@ export const HeaderStyles = css`
     color: var(--app-drawer-selected-color);
   }
 
+  .app-drawer-container {
+    z-index: 999;
+  }
+
   @media (min-width: 460px) {
     .toolbar-list {
       display: block;

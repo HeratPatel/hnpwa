@@ -157,9 +157,13 @@ const loadPage = page => dispatch => {
     case 'user':
       import('../../pages/user/index.js');
         break;
+    case 'settings':
+      import('../../pages/settings/index.js');
+        break;
     default:
         page = '404';
       import('../../pages/404/index.js');
+        break;
     }
 
     dispatch(updatePage(page));

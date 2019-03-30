@@ -3,7 +3,7 @@
     "public": "build",
     "ignore": [
       "firebase.json",
-      "**/.*"
+      "**/.*"      
     ],
     "rewrites": [
       {
@@ -11,7 +11,7 @@
         "function": "app"
       }
     ],
-    "headers": [
+    "headers": [      
       {
         "source" : "**/service-worker.js",
         "headers" : [

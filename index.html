@@ -59,13 +59,16 @@
 
   <script>
     // Load and register pre-caching Service Worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('service-worker.js', {
-          scope: '/',
-        });
-      });
-    }
+    // if ('serviceWorker' in navigator) {
+    //   window.addEventListener('load', function () {
+    //     navigator.serviceWorker.register('service-worker.js', {
+    //       scope: '/',
+    //     });
+    //     navigator.serviceWorker.register('firebase-messaging-sw.js').then((registration) => {
+          
+    //     })
+    //   });
+    // }
 
     // Redux assumes `process.env.NODE_ENV` exists in the ES module build.
     // https://github.com/reactjs/redux/issues/2907
@@ -98,30 +101,116 @@
 </head>
 
 <body>
+  <!-- Application -->
   <my-app appTitle="hnpwa"></my-app>
+
+  <!-- If Javascript Disabled -->
   <noscript>
     Please enable JavaScript to view this website.
   </noscript>
+
   <!-- Built with love using PWA Starter Kit -->
   <script type="module" src="src/index.js" crossorigin></script>
-  
+
   <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
   <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" type="module"></script>
-  
+
   <!-- Load Firebase Application -->
-  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
   <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCAyJRJJYN3_ed1bRnUDrMb2MOF1ri_32I",
-      authDomain: "hnpwa-fcf6b.firebaseapp.com",
-      databaseURL: "https://hnpwa-fcf6b.firebaseio.com",
-      projectId: "hnpwa-fcf6b",
-      storageBucket: "hnpwa-fcf6b.appspot.com",
-      messagingSenderId: "1065550303539"
+    document.querySelector('my-app').initFCM = () => initFirebaseMessagingRegistration();
+
+    // Firebase Configurations
+    const config = {
+      apiKey: 'AIzaSyCAyJRJJYN3_ed1bRnUDrMb2MOF1ri_32I',
+      authDomain: 'hnpwa-fcf6b.firebaseapp.com',
+      databaseURL: 'https://hnpwa-fcf6b.firebaseio.com',
+      projectId: 'hnpwa-fcf6b',
+      storageBucket: 'hnpwa-fcf6b.appspot.com',
+      messagingSenderId: '1065550303539'
     };
+
+    // initialize Firebase App
     firebase.initializeApp(config);
+
+    // Retrieve Firebase Messaging object.
+    const messaging = firebase.messaging();
+
+    // Add the public key generated from the console here.
+    messaging.usePublicVapidKey(
+      'BBVNsmo8iUjXTg_HwMQKL03jGKjsxl1nR_JeUA4dR0RdQGy5c-J1QAV4hhpi3DEwgoooTTqOckyLvKpy8FXg4Fo'
+    );
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('service-worker.js', {
+          scope: '/',
+        }).then(registration => {
+          messaging.useServiceWorker(registration);
+        });        
+      });
+    }
+
+    function initFirebaseMessagingRegistration() {          
+      // [ask/request] user to allow push notifications for the app
+      return messaging.requestPermission().then(function () {
+        console.log('Notification permission granted.');
+        const token = getFCMToken().then(token => token);        
+        return { isApproved: true, token};
+      }).catch(function (err) {
+        console.log('Unable to get permission to notify.', err);
+      });      
+    }
+
+    function getFCMToken(){
+      // Get Instance ID token. Initially this makes a network call, once retrieved
+      // subsequent calls to getToken will return from cache.
+      return messaging.getToken().then(function (currentToken) {
+          if (currentToken) {
+            // Send token to the server
+            // sendTokenToServer(currentToken);
+            return currentToken;
+          } else {
+            console.log('No Instance ID token available. Request permission to generate one.');
+            // remove token false to the server
+            // setTokenSentToServer(false);
+            return null;
+          }
+        }).catch(function (err) {
+          console.log('An error occurred while retrieving token. ', err);
+          // set token false to the server
+          // setTokenSentToServer(false);
+        });
+    }
+
+    // Callback fired if Instance ID token is updated.
+    messaging.onTokenRefresh(function () {
+      messaging.getToken().then(function (refreshedToken) {
+        console.log('Token refreshed.');
+        if (refreshedToken) {
+          console.log("refreshedToken", refreshedToken);
+        }
+        // Indicate that the new Instance ID token has not yet been sent to the
+        // app server.
+        // setTokenSentToServer(false);
+        // Send Instance ID token to app server.
+        // sendTokenToServer(refreshedToken);        
+      }).catch(function (err) {
+        console.log('Unable to retrieve refreshed token ', err);
+      });
+    });
+
+    // Handle incoming messages. Called when:
+    // - a message is received while the app has focus
+    // - the user clicks on an app notification created by a service worker
+    //   `messaging.setBackgroundMessageHandler` handler.
+    messaging.onMessage(function (payload) {
+      console.log('Message received. ', payload);
+    });
   </script>
+
+  
 </body>
 
 </html>
