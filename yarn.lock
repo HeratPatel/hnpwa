@@ -687,11 +687,6 @@
   resolved "https://registry.yarnpkg.com/@polymer/test-fixture/-/test-fixture-0.0.3.tgz#4443752697d4d9293bbc412ea0b5e4d341f149d9"
   integrity sha1-REN1JpfU2Sk7vEEuoLXk00HxSdk=
 
-"@polymer/test-fixture@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@polymer/test-fixture/-/test-fixture-4.0.2.tgz#2f4777ecdcfb22ee000db35a05e0edf27c722c19"
-  integrity sha512-tLX8tFE4mkc4p84YG5239G0hbgTVv2irZYrSyO0OblUqIRbRoCPmbydm3HRFQkJeAB3rPCtyeZ2roJULsmTG3A==
-
 "@types/babel-generator@^6.25.1":
   version "6.25.3"
   resolved "https://registry.yarnpkg.com/@types/babel-generator/-/babel-generator-6.25.3.tgz#8f06caa12d0595a0538560abe771966d77d29286"
@@ -6966,7 +6961,7 @@ polymer-project-config@^4.0.0, polymer-project-config@^4.0.3:
     plylog "^1.0.0"
     winston "^3.0.0"
 
-polyserve@^0.27.0, polyserve@^0.27.13, polyserve@^0.27.15:
+polyserve@^0.27.13, polyserve@^0.27.15:
   version "0.27.15"
   resolved "https://registry.yarnpkg.com/polyserve/-/polyserve-0.27.15.tgz#261fa5a0873c8d95fd7068598f44c9dac20cf9c4"
   integrity sha512-AaFgANt+tUUVgHLw+BnaVYcn649JiwL1ru0TOZUKj1gGGn/Bq2S16gxql+1muGpRaAsgFu13Zu7k5XkwatwwSg==

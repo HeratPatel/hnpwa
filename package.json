@@ -21,13 +21,11 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@polymer/test-fixture": "^4.0.2",
     "babel-eslint": "^10.0.1",
     "del": "^4.0.0",
     "eslint": "^5.15.3",
     "gulp": "^4.0.0",
     "polymer-cli": "^1.9.3",
-    "polyserve": "^0.27.0",
     "prpl-server": "^1.4.0"
   }
 }
