@@ -4,9 +4,9 @@
   "license": "MIT",
   "repository": "HeratPatel/hnpwa",
   "scripts": {
-    "start": "polymer serve",
+    "start": "gulp env-dev && polymer serve",
     "build:static": "polymer build",
-    "build:prpl": "polymer build --auto-base-path && gulp firebase",
+    "build:prpl": "polymer build --auto-base-path && gulp firebase && gulp env-prod",
     "serve:static": "polymer serve --port 5000 build/es5-bundled",
     "serve:prpl": "firebase serve"
   },
@@ -15,6 +15,8 @@
     "@polymer/paper-checkbox": "^3.1.0",
     "@polymer/polymer": "^3.2.0",
     "@webcomponents/webcomponentsjs": "^2.2.0",
+    "dotenv": "^7.0.0",
+    "gulp-replace": "^1.0.0",
     "lit-element": "^2.1.0",
     "pwa-helpers": "^0.9.0",
     "redux": "^4.0.0",

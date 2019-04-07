@@ -15,7 +15,7 @@ import page from './page/reducer';
 // See https://github.com/zalmoxisus/redux-devtools-extension for more information.
 let compose = origCompose;
 
-if (window.process.env.NODE_ENV !== 'production') {
+if (window.process.env.NODE_ENV === 'development') {
     compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 }
 

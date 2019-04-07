@@ -58,21 +58,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 
   <script>
-    // Load and register pre-caching Service Worker
-    // if ('serviceWorker' in navigator) {
-    //   window.addEventListener('load', function () {
-    //     navigator.serviceWorker.register('service-worker.js', {
-    //       scope: '/',
-    //     });
-    //     navigator.serviceWorker.register('firebase-messaging-sw.js').then((registration) => {
-          
-    //     })
-    //   });
-    // }
-
-    // Redux assumes `process.env.NODE_ENV` exists in the ES module build.
-    // https://github.com/reactjs/redux/issues/2907
-    window.process = { env: { NODE_ENV: 'production' } };
+    (window.process = window.process || {}).env = {"NODE_ENV":"development","FB_API_KEY":"AIzaSyCAyJRJJYN3_ed1bRnUDrMb2MOF1ri_32I","FB_AUTH_DOMAIN":"hnpwa-fcf6b.firebaseapp.com","FB_DATABASE_URL":"https://hnpwa-fcf6b.firebaseio.com","FB_PROJECT_ID":"hnpwa-fcf6b","FB_STORAGE_BUCKET":"hnpwa-fcf6b.appspot.com","FB_MESSAGING_SENDER_ID":"1065550303539","FB_VAPID_KEY":"BBVNsmo8iUjXTg_HwMQKL03jGKjsxl1nR_JeUA4dR0RdQGy5c-J1QAV4hhpi3DEwgoooTTqOckyLvKpy8FXg4Fo"};
   </script>
 
   <!-- Add any global styles for body, document, etc. -->
@@ -123,12 +109,12 @@
 
     // Firebase Configurations
     const config = {
-      apiKey: 'AIzaSyCAyJRJJYN3_ed1bRnUDrMb2MOF1ri_32I',
-      authDomain: 'hnpwa-fcf6b.firebaseapp.com',
-      databaseURL: 'https://hnpwa-fcf6b.firebaseio.com',
-      projectId: 'hnpwa-fcf6b',
-      storageBucket: 'hnpwa-fcf6b.appspot.com',
-      messagingSenderId: '1065550303539'
+      apiKey: window.process.env.FB_API_KEY,
+      authDomain: window.process.env.FB_AUTH_DOMAIN,
+      databaseURL: window.process.env.FB_DATABASE_URL,
+      projectId: window.process.env.FB_PROJECT_ID,
+      storageBucket: window.process.env.FB_STORAGE_BUCKET,
+      messagingSenderId: window.process.env.FB_MESSAGING_SENDER_ID
     };
 
     // initialize Firebase App
@@ -139,7 +125,7 @@
 
     // Add the public key generated from the console here.
     messaging.usePublicVapidKey(
-      'BBVNsmo8iUjXTg_HwMQKL03jGKjsxl1nR_JeUA4dR0RdQGy5c-J1QAV4hhpi3DEwgoooTTqOckyLvKpy8FXg4Fo'
+      window.process.env.FB_VAPID_KEY
     );
 
     if ('serviceWorker' in navigator) {
