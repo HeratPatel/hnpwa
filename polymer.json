@@ -6,7 +6,8 @@
     "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/**",
     "push-manifest.json",
-    "fcm-sw.js"
+    "fcm-sw.js",
+    "first-input-delay.min.js"
   ],
   "builds": [
     {

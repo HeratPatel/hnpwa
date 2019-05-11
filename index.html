@@ -92,6 +92,24 @@
       };
     </script>
 
+    <!-- Measures First Input Delay for Firebase Performance Monitoring -->
+    <script src="first-input-delay.min.js"></script>
+
+    <script>
+      // The perfMetrics object is created by the code that goes in <head>.
+      perfMetrics.onFirstInputDelay(function(delay, evt) {
+        ga("send", "event", {
+          eventCategory: "Perf Metrics",
+          eventAction: "first-input-delay",
+          eventLabel: evt.type,
+          // Event values must be an integer.
+          eventValue: Math.round(delay),
+          // Exclude this event from bounce rate calculations.
+          nonInteraction: true
+        });
+      });
+    </script>
+
     <!-- Add any global styles for body, document, etc. -->
     <style>
       @font-face {
@@ -134,22 +152,13 @@
     ></script>
 
     <!-- Load Firebase Application -->
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
+    <script src="/__/firebase/6.0.2/firebase-app.js"></script>
+    <script src="/__/firebase/6.0.2/firebase-messaging.js"></script>
+    <script src="/__/firebase/6.0.2/firebase-performance.js"></script>
+    <script src="/__/firebase/init.js"></script>
     <script>
       document.querySelector("my-app").initFCM = () =>
         initFirebaseMessagingRegistration();
-
-      const config = {
-        apiKey: window.process.env.FB_API_KEY,
-        authDomain: window.process.env.FB_AUTH_DOMAIN,
-        databaseURL: window.process.env.FB_DATABASE_URL,
-        projectId: window.process.env.FB_PROJECT_ID,
-        storageBucket: window.process.env.FB_STORAGE_BUCKET,
-        messagingSenderId: window.process.env.FB_MESSAGING_SENDER_ID
-      };
-
-      firebase.initializeApp(config);
 
       const messaging = firebase.messaging();
 
@@ -215,6 +224,9 @@
       messaging.onMessage(function(payload) {
         console.log("Message received. ", payload);
       });
+    </script>
+    <script>
+      var perf = firebase.performance();
     </script>
   </body>
 </html>
