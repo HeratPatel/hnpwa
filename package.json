@@ -27,7 +27,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.2",
     "del": "^5.0.0",
-    "eslint": "^5.15.3",
+    "eslint": "^6.2.1",
     "gulp": "^4.0.2",
     "polymer-cli": "^1.9.11",
     "prpl-server": "^1.4.0"
