@@ -12,7 +12,7 @@
     "perf-budget": "lighthouse https://hnpwa-fcf6b.firebaseapp.com --budget-path=budget.json"
   },
   "dependencies": {
-    "@polymer/app-layout": "^3.0.0",
+    "@polymer/app-layout": "^3.1.0",
     "@polymer/paper-checkbox": "^3.1.0",
     "@polymer/polymer": "^3.2.0",
     "@webcomponents/webcomponentsjs": "^2.2.10",
@@ -21,7 +21,7 @@
     "gulp-replace": "^1.0.0",
     "lit-element": "^2.1.0",
     "pwa-helpers": "^0.9.0",
-    "redux": "^4.0.0",
+    "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
