@@ -1,6 +1,6 @@
 import {
     createStore,
-    compose as origCompose,
+    compose,
     applyMiddleware,
     combineReducers
 } from 'redux';
@@ -11,12 +11,14 @@ import { errorHandler } from '../utils/error-handler';
 import app from './app/reducer';
 import page from './page/reducer';
 
-// Sets up a Chrome extension for time travel debugging.
-// See https://github.com/zalmoxisus/redux-devtools-extension for more information.
-let compose = origCompose;
+/**
+ * composeEnhancers
+ * enhancer for redux dev tools (only in development mode)
+ */
+let composeEnhancers = compose;
 
 if (window.process.env.NODE_ENV === 'development') {
-    compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 }
 
 // Initializes the Redux store with a lazyReducerEnhancer (so that you can
@@ -26,7 +28,7 @@ if (window.process.env.NODE_ENV === 'development') {
 // https://github.com/Polymer/pwa-starter-kit/wiki/4.-Redux-and-state-management
 export const store = createStore(
     state => state,
-    compose(
+    composeEnhancers(
         lazyReducerEnhancer(combineReducers),
         applyMiddleware(thunk.withExtraArgument(errorHandler))
     )
