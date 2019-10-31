@@ -1,18 +1,22 @@
 {
   "entrypoint": "index.html",
   "shell": "src/index.js",
-  "sources": ["src/images/**/*"],
+  "sources": [
+    "src/images/**/*"
+  ],
   "extraDependencies": [
     "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/**",
     "push-manifest.json",
-    "fcm-sw.js",
-    "first-input-delay.min.js"
+    "fcm-sw.js"
   ],
   "builds": [
     {
       "name": "esm-bundled",
-      "browserCapabilities": ["es2015", "modules"],
+      "browserCapabilities": [
+        "es2015",
+        "modules"
+      ],
       "js": {
         "minify": true
       },
@@ -27,7 +31,9 @@
     },
     {
       "name": "es6-bundled",
-      "browserCapabilities": ["es2015"],
+      "browserCapabilities": [
+        "es2015"
+      ],
       "js": {
         "compile": "es2015",
         "minify": true,

@@ -61,24 +61,6 @@
     (window.process = window.process || {}).env = {"NODE_ENV":"development","FB_API_KEY":"AIzaSyCAyJRJJYN3_ed1bRnUDrMb2MOF1ri_32I","FB_AUTH_DOMAIN":"hnpwa-fcf6b.firebaseapp.com","FB_DATABASE_URL":"https://hnpwa-fcf6b.firebaseio.com","FB_PROJECT_ID":"hnpwa-fcf6b","FB_STORAGE_BUCKET":"hnpwa-fcf6b.appspot.com","FB_MESSAGING_SENDER_ID":"1065550303539","FB_APP_ID":"1:1065550303539:web:83deb0f2f2640f15","FB_VAPID_KEY":"BBVNsmo8iUjXTg_HwMQKL03jGKjsxl1nR_JeUA4dR0RdQGy5c-J1QAV4hhpi3DEwgoooTTqOckyLvKpy8FXg4Fo"};
   </script>
 
-  <!-- Measures First Input Delay for Firebase Performance Monitoring -->
-  <script src="first-input-delay.min.js"></script>
-
-  <script>
-    // The perfMetrics object is created by the code that goes in <head>.
-    perfMetrics.onFirstInputDelay(function (delay, evt) {
-      ga("send", "event", {
-        eventCategory: "Perf Metrics",
-        eventAction: "first-input-delay",
-        eventLabel: evt.type,
-        // Event values must be an integer.
-        eventValue: Math.round(delay),
-        // Exclude this event from bounce rate calculations.
-        nonInteraction: true
-      });
-    });
-  </script>
-
   <!-- Add any global styles for body, document, etc. -->
   <style>
     @font-face {
@@ -123,7 +105,7 @@
   <script>
     const env = window.process.env;
     // Your web app's Firebase configuration
-    var firebaseConfig = {
+    const firebaseConfig = {
       apiKey: env.FB_API_KEY,
       authDomain: env.FB_AUTH_DOMAIN,
       databaseURL: env.FB_DATABASE_URL,
@@ -204,8 +186,17 @@
       console.log("Message received. ", payload);
     });
   </script>
+  <!-- Firebase Performance Monitoring -->
   <script>
-    var perf = firebase.performance();
+    const perf = firebase.performance();
+
+    // Measures First Input Delay for Firebase Performance Monitoring
+    // https://github.com/GoogleChromeLabs/first-input-delay/blob/master/dist/first-input-delay.min.js
+    !function (n, e) { var t, o, i, c = [], f = { passive: !0, capture: !0 }, r = new Date, a = 'pointerup', u = 'pointercancel'; function p(n, c) { t || (t = c, o = n, i = new Date, w(e), s()); } function s() { o >= 0 && o < i - r && (c.forEach(function (n) { n(o, t); }), c = []); } function l(t) { if (t.cancelable) { var o = (t.timeStamp > 1e12 ? new Date : performance.now()) - t.timeStamp; 'pointerdown' == t.type ? function (t, o) { function i() { p(t, o), r(); } function c() { r(); } function r() { e(a, i, f), e(u, c, f); } n(a, i, f), n(u, c, f); }(o, t) : p(o, t); } } function w(n) { ['click', 'mousedown', 'keydown', 'touchstart', 'pointerdown'].forEach(function (e) { n(e, l, f); }); } w(n), self.perfMetrics = self.perfMetrics || {}, self.perfMetrics.onFirstInputDelay = function (n) { c.push(n), s(); }; }(addEventListener, removeEventListener);
+    const trace = perf.trace('first_input_delay');
+    perfMetrics.onFirstInputDelay(function (delay, evt) {
+      trace.putAttribute('firstInputDelay', delay.toString());
+    });
   </script>
 </body>
 
