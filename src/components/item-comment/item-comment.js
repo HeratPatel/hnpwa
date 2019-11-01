@@ -1,38 +1,38 @@
-import { LitElement, html } from "lit-element";
-import { CommentsStyle } from "./styles";
+import { LitElement, html } from 'lit-element';
+import { CommentsStyle } from './styles';
 
 export class ItemComment extends LitElement {
-  constructor() {
-    super();
-    this.collapsed = false;
-    this.collapseString = "[–]";
-    this.collapseTitle = "Hide comments";
-    this.commentThreadSize = 0;
-  }
+    constructor() {
+        super();
+        this.collapsed = false;
+        this.collapseString = '[–]';
+        this.collapseTitle = 'Hide comments';
+        this.commentThreadSize = 0;
+    }
 
-  static get properties() {
-    return {
-      id: { type: Number },
-      level: { type: Number },
-      user: { type: String },
-      time_ago: { type: String },
-      content: { type: String }
-    };
-  }
+    static get properties() {
+        return {
+            id: { type: Number },
+            level: { type: Number },
+            user: { type: String },
+            time_ago: { type: String },
+            content: { type: String }
+        };
+    }
 
-  static get styles() {
-    return [CommentsStyle];
-  }
+    static get styles() {
+        return [CommentsStyle];
+    }
 
-  toggleCollapse() {
-    this.collapsed = !this.collapsed;
-    this.collapseString = this.collapsed ? "[+]" : "[–]";
-  }
+    toggleCollapse() {
+        this.collapsed = !this.collapsed;
+        this.collapseString = this.collapsed ? '[+]' : '[–]';
+    }
 
-  render() {
-    const { id, user, time_ago, content, collapseString, collapsed } = this;
+    render() {
+        const { id, user, time_ago, content, collapseString, collapsed } = this;
 
-    return html`
+        return html`
       <div class="header">
         <button
           role="button"
@@ -48,5 +48,5 @@ export class ItemComment extends LitElement {
       </div>
       <div class="comment" .innerHTML="${content}" .hidden="${collapsed}"></div>
     `;
-  }
+    }
 }
