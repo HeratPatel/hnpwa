@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp env-dev && polymer serve",
     "build:static": "polymer build",
-    "build:prpl": "polymer build --auto-base-path && gulp firebase && gulp env-prod",
+    "build:prpl": "gulp env-prod && polymer build --auto-base-path && gulp firebase",
     "serve:static": "polymer serve --port 5000 build/es5-bundled",
     "serve:prpl": "firebase serve",
     "perf-budget": "lighthouse https://hnpwa-fcf6b.firebaseapp.com --budget-path=budget.json"

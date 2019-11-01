@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <title>HNPWA</title>
-  <meta name="generator" content="PWA Starter Kit" />
+  <meta name="generator" content="HNPWA" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="My App description" />
+  <meta name="description" content="Progressive Web App" />
 
   <!--
       The `<base>` tag below is present to support two advanced deployment options:
@@ -48,17 +48,27 @@
   <meta name="msapplication-tap-highlight" content="no" />
 
   <!-- Default twitter cards -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@username" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://hnpwa-fcf6b.firebaseapp.com" />
+  <meta property="twitter:title" content="HNPWA" />
+  <meta property="twitter:description" content="Progressive Web App" />
+  <meta property="twitter:image" content="src/images/manifest/icon-144x144.png" />
+
+  <!-- Open graph meta tags -->
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="my-app" />
+  <meta property="og:site_name" content="HNPWA" />
+  <meta property="og:url" content="https://hnpwa-fcf6b.firebaseapp.com" />
+  <meta property="og:title" content="HNPWA" />
+  <meta property="og:description" content="Progressive Web App" />
   <meta property="og:image" content="src/images/manifest/icon-144x144.png" />
+  <meta property="og:image:width" content="1220" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
 
   <script>
-    (window.process = window.process || {}).env = {"NODE_ENV":"development","FB_API_KEY":"AIzaSyCAyJRJJYN3_ed1bRnUDrMb2MOF1ri_32I","FB_AUTH_DOMAIN":"hnpwa-fcf6b.firebaseapp.com","FB_DATABASE_URL":"https://hnpwa-fcf6b.firebaseio.com","FB_PROJECT_ID":"hnpwa-fcf6b","FB_STORAGE_BUCKET":"hnpwa-fcf6b.appspot.com","FB_MESSAGING_SENDER_ID":"1065550303539","FB_APP_ID":"1:1065550303539:web:83deb0f2f2640f15","FB_VAPID_KEY":"BBVNsmo8iUjXTg_HwMQKL03jGKjsxl1nR_JeUA4dR0RdQGy5c-J1QAV4hhpi3DEwgoooTTqOckyLvKpy8FXg4Fo"};
+    (window.process = window.process || {}).env = {"NODE_ENV":"production","FB_API_KEY":"AIzaSyCAyJRJJYN3_ed1bRnUDrMb2MOF1ri_32I","FB_AUTH_DOMAIN":"hnpwa-fcf6b.firebaseapp.com","FB_DATABASE_URL":"https://hnpwa-fcf6b.firebaseio.com","FB_PROJECT_ID":"hnpwa-fcf6b","FB_STORAGE_BUCKET":"hnpwa-fcf6b.appspot.com","FB_MESSAGING_SENDER_ID":"1065550303539","FB_APP_ID":"1:1065550303539:web:83deb0f2f2640f15","FB_VAPID_KEY":"BBVNsmo8iUjXTg_HwMQKL03jGKjsxl1nR_JeUA4dR0RdQGy5c-J1QAV4hhpi3DEwgoooTTqOckyLvKpy8FXg4Fo"};
   </script>
 
   <!-- Add any global styles for body, document, etc. -->
@@ -100,8 +110,8 @@
 
   <!-- Load Firebase Application -->
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-messaging.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-performance.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-messaging.js"></script>
   <script>
     const env = window.process.env;
     // Your web app's Firebase configuration

@@ -3,10 +3,9 @@ const del = require('del');
 const dotenv = require('dotenv');
 const replace = require('gulp-replace');
 
-// development
-gulp.task('env-dev', () => {
+
+function changeEnvironments(envFile) {
     const envPattern = /\.env ?= ?{([^;]+)/g;
-    const envFile = dotenv.config({ path: '.env.dev' });
 
     // clear env
     gulp
@@ -25,30 +24,18 @@ gulp.task('env-dev', () => {
         .src('index.html')
         .pipe(replace(envPattern, replacement))
         .pipe(gulp.dest('.'));
+}
+
+// development
+gulp.task('env-dev', () => {
+    const envFile = dotenv.config({ path: '.env.dev' });
+    return changeEnvironments(envFile);
 });
 
 // production
 gulp.task('env-prod', () => {
-    const envPattern = /\.env ?= ?{([^;]+)/g;
     const envFile = dotenv.config({ path: '.env.prod' });
-
-    // production
-    gulp
-        .src('functions/build/**/index.html')
-        .pipe(replace(envPattern, '.env={}'))
-        .pipe(gulp.dest('functions/build'));
-
-    // check for the errors
-    if (envFile.error) {
-        throw envFile.error;
-    }
-
-    const replacement = `.env = ${JSON.stringify(envFile.parsed)}`;
-
-    return gulp
-        .src('functions/build/**/index.html')
-        .pipe(replace(envPattern, replacement))
-        .pipe(gulp.dest('functions/build'));
+    return changeEnvironments(envFile);
 });
 
 /**
@@ -67,7 +54,7 @@ gulp.task('firebase', () => {
         del('functions/build')
             .then(
                 () =>
-                // Copy the files needed by PRPL Server
+                    // Copy the files needed by PRPL Server
                     new Promise(resolve =>
                         gulp
                             .src(filesToMove, { base: '.' })
@@ -75,7 +62,7 @@ gulp.task('firebase', () => {
                             .on('end', resolve)
                     )
             )
-        // Delete them from the original build
+            // Delete them from the original build
             .then(() => del(filesToMove))
     );
 });
