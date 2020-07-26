@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HNPWA</title>
+    <meta name="generator" content="HNPWA" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Progressive Web App" />
 
-<head>
-  <meta charset="utf-8" />
-  <title>HNPWA</title>
-  <meta name="generator" content="HNPWA" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Progressive Web App" />
-
-  <!--
+    <!--
       The `<base>` tag below is present to support two advanced deployment options:
       1) Differential serving. 2) Serving from a non-root path.
 
@@ -16,198 +15,288 @@
       a) Add a `basePath` property to the build configuration in your `polymer.json`.
       b) Use the `--base-path` command-line option for `polymer build`.
     -->
-  <base href="/" />
+    <base href="/" />
 
-  <link rel="icon" href="src/images/favicon.ico" />
+    <link rel="icon" href="src/images/favicon.ico" />
 
-  <!-- See https://goo.gl/OOhYW5 -->
-  <link rel="manifest" href="manifest.json" />
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="manifest.json" />
 
-  <!-- See https://goo.gl/qRE0vM -->
-  <meta name="theme-color" content="#3f51b5" />
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#3f51b5" />
 
-  <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="application-name" content="HNPWA" />
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="HNPWA" />
 
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="HNPWA" />
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="HNPWA" />
 
-  <!-- Homescreen icons -->
-  <link rel="apple-touch-icon" href="src/images/manifest/icon-48x48.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="src/images/manifest/icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="96x96" href="src/images/manifest/icon-96x96.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="src/images/manifest/icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="192x192" href="src/images/manifest/icon-192x192.png" />
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" href="src/images/manifest/icon-48x48.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="src/images/manifest/icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="96x96"
+      href="src/images/manifest/icon-96x96.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="src/images/manifest/icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="192x192"
+      href="src/images/manifest/icon-192x192.png"
+    />
 
-  <!-- Tile icon for Windows 8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="src/images/manifest/icon-144x144.png" />
-  <meta name="msapplication-TileColor" content="#3f51b5" />
-  <meta name="msapplication-tap-highlight" content="no" />
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta
+      name="msapplication-TileImage"
+      content="src/images/manifest/icon-144x144.png"
+    />
+    <meta name="msapplication-TileColor" content="#3f51b5" />
+    <meta name="msapplication-tap-highlight" content="no" />
 
-  <!-- Default twitter cards -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://hnpwa-fcf6b.firebaseapp.com" />
-  <meta property="twitter:title" content="HNPWA" />
-  <meta property="twitter:description" content="Progressive Web App" />
-  <meta property="twitter:image" content="src/images/manifest/icon-144x144.png" />
+    <!-- Default twitter cards -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://hnpwa-fcf6b.firebaseapp.com"
+    />
+    <meta property="twitter:title" content="HNPWA" />
+    <meta property="twitter:description" content="Progressive Web App" />
+    <meta
+      property="twitter:image"
+      content="src/images/manifest/icon-144x144.png"
+    />
 
-  <!-- Open graph meta tags -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="HNPWA" />
-  <meta property="og:url" content="https://hnpwa-fcf6b.firebaseapp.com" />
-  <meta property="og:title" content="HNPWA" />
-  <meta property="og:description" content="Progressive Web App" />
-  <meta property="og:image" content="src/images/manifest/icon-144x144.png" />
-  <meta property="og:image:width" content="1220" />
-  <meta property="og:image:height" content="630" />
+    <!-- Open graph meta tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="HNPWA" />
+    <meta property="og:url" content="https://hnpwa-fcf6b.firebaseapp.com" />
+    <meta property="og:title" content="HNPWA" />
+    <meta property="og:description" content="Progressive Web App" />
+    <meta property="og:image" content="src/images/manifest/icon-144x144.png" />
+    <meta property="og:image:width" content="1220" />
+    <meta property="og:image:height" content="630" />
 
-  <!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="preconnect" href="https://www.gstatic.com/" crossorigin />
 
-  <script>
-    (window.process = window.process || {}).env = {"NODE_ENV":"production","FB_API_KEY":"AIzaSyCAyJRJJYN3_ed1bRnUDrMb2MOF1ri_32I","FB_AUTH_DOMAIN":"hnpwa-fcf6b.firebaseapp.com","FB_DATABASE_URL":"https://hnpwa-fcf6b.firebaseio.com","FB_PROJECT_ID":"hnpwa-fcf6b","FB_STORAGE_BUCKET":"hnpwa-fcf6b.appspot.com","FB_MESSAGING_SENDER_ID":"1065550303539","FB_APP_ID":"1:1065550303539:web:83deb0f2f2640f15","FB_VAPID_KEY":"BBVNsmo8iUjXTg_HwMQKL03jGKjsxl1nR_JeUA4dR0RdQGy5c-J1QAV4hhpi3DEwgoooTTqOckyLvKpy8FXg4Fo"};
-  </script>
+    <!-- Preload the resources -->
+    <link rel="preload" href="src/index.js" as="script" />
+    <link rel="preload" href="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" as="script" />
 
-  <!-- Add any global styles for body, document, etc. -->
-  <style>
-    @font-face {
-      font-family: "Pacifico";
-      font-style: normal;
-      font-weight: 400;
-      src: local("Pacifico Regular"), local("Pacifico-Regular"),
-        url(https://fonts.gstatic.com/s/pacifico/v12/Q_Z9mv4hySLTMoMjnk_rCXYhjbSpvc47ee6xR_80Hnw.woff2) format("woff2");
-      font-display: swap;
-    }
+    <script>
+      (window.process = window.process || {}).env = {"NODE_ENV":"production","FB_API_KEY":"AIzaSyCAyJRJJYN3_ed1bRnUDrMb2MOF1ri_32I","FB_AUTH_DOMAIN":"hnpwa-fcf6b.firebaseapp.com","FB_DATABASE_URL":"https://hnpwa-fcf6b.firebaseio.com","FB_PROJECT_ID":"hnpwa-fcf6b","FB_STORAGE_BUCKET":"hnpwa-fcf6b.appspot.com","FB_MESSAGING_SENDER_ID":"1065550303539","FB_APP_ID":"1:1065550303539:web:83deb0f2f2640f15","FB_VAPID_KEY":"BBVNsmo8iUjXTg_HwMQKL03jGKjsxl1nR_JeUA4dR0RdQGy5c-J1QAV4hhpi3DEwgoooTTqOckyLvKpy8FXg4Fo"};
+    </script>
 
-    body {
-      margin: 0;
-      font-family: Helvetica, Arial, sans-serif, "Apple Color Emoji",
-        "Segoe UI Emoji", "Segoe UI Symbol";
-      line-height: 1.5;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
-  </style>
-</head>
+    <!-- Add any global styles for body, document, etc. -->
+    <style>
+      @font-face {
+        font-family: 'Pacifico';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Pacifico Regular'), local('Pacifico-Regular'),
+          url(https://fonts.gstatic.com/s/pacifico/v12/Q_Z9mv4hySLTMoMjnk_rCXYhjbSpvc47ee6xR_80Hnw.woff2)
+            format('woff2');
+        font-display: swap;
+      }
 
-<body>
-  <!-- Application -->
-  <my-app appTitle="hnpwa"></my-app>
+      body {
+        margin: 0;
+        font-family: Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+          'Segoe UI Emoji', 'Segoe UI Symbol';
+        line-height: 1.5;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+  </head>
 
-  <!-- If Javascript Disabled -->
-  <noscript>
-    Please enable JavaScript to view this website.
-  </noscript>
+  <body>
+    <!-- Application -->
+    <my-app appTitle="hnpwa"></my-app>
 
-  <!-- Built with love using PWA Starter Kit -->
-  <script type="module" src="src/index.js" crossorigin></script>
+    <!-- If Javascript Disabled -->
+    <noscript>
+      Please enable JavaScript to view this website.
+    </noscript>
 
-  <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
-  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" type="module"></script>
+    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" crossorigin="anonymous"></script>
 
-  <!-- Load Firebase Application -->
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-performance.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-messaging.js"></script>
-  <script>
-    const env = window.process.env;
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: env.FB_API_KEY,
-      authDomain: env.FB_AUTH_DOMAIN,
-      databaseURL: env.FB_DATABASE_URL,
-      projectId: env.FB_PROJECT_ID,
-      storageBucket: env.FB_STORAGE_BUCKET,
-      messagingSenderId: env.FB_MESSAGING_SENDER_ID,
-      appId: env.FB_APP_ID
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
-  <script>
-    document.querySelector("my-app").initFCM = () =>
-      initFirebaseMessagingRegistration();
+    <!-- Built with love using PWA Starter Kit -->
+    <script type="module" src="src/index.js" crossorigin="anonymous"></script>
 
-    const messaging = firebase.messaging();
+    <!-- Load Firebase Application -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-performance.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-messaging.js"></script>
+    <script>
+      const env = window.process.env;
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: env.FB_API_KEY,
+        authDomain: env.FB_AUTH_DOMAIN,
+        databaseURL: env.FB_DATABASE_URL,
+        projectId: env.FB_PROJECT_ID,
+        storageBucket: env.FB_STORAGE_BUCKET,
+        messagingSenderId: env.FB_MESSAGING_SENDER_ID,
+        appId: env.FB_APP_ID,
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+      document.querySelector('my-app').initFCM = () =>
+        initFirebaseMessagingRegistration();
 
-    messaging.usePublicVapidKey(env.FB_VAPID_KEY);
+      const messaging = firebase.messaging();
 
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function () {
-        navigator.serviceWorker
-          .register("service-worker.js", {
-            scope: "/"
+      messaging.usePublicVapidKey(env.FB_VAPID_KEY);
+
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker
+            .register('service-worker.js', {
+              scope: '/',
+            })
+            .then((registration) => {
+              messaging.useServiceWorker(registration);
+            });
+        });
+      }
+
+      function initFirebaseMessagingRegistration() {
+        return messaging
+          .requestPermission()
+          .then(function () {
+            console.log('Notification permission granted.');
+            const token = getFCMToken().then((token) => token);
+            return { isApproved: true, token };
           })
-          .then(registration => {
-            messaging.useServiceWorker(registration);
+          .catch(function (err) {
+            console.log('Unable to get permission to notify.', err);
+          });
+      }
+
+      function getFCMToken() {
+        return messaging
+          .getToken()
+          .then(function (currentToken) {
+            if (currentToken) {
+              return currentToken;
+            } else {
+              console.log(
+                'No Instance ID token available. Request permission to generate one.'
+              );
+              return null;
+            }
+          })
+          .catch(function (err) {
+            // console.log("An error occurred while retrieving token. ", err);
+          });
+      }
+
+      messaging.onTokenRefresh(function () {
+        messaging
+          .getToken()
+          .then(function (refreshedToken) {
+            console.log('Token refreshed.');
+            if (refreshedToken) {
+              console.log('refreshedToken', refreshedToken);
+            }
+          })
+          .catch(function (err) {
+            console.log('Unable to retrieve refreshed token ', err);
           });
       });
-    }
 
-    function initFirebaseMessagingRegistration() {
-      return messaging
-        .requestPermission()
-        .then(function () {
-          console.log("Notification permission granted.");
-          const token = getFCMToken().then(token => token);
-          return { isApproved: true, token };
-        })
-        .catch(function (err) {
-          console.log("Unable to get permission to notify.", err);
-        });
-    }
+      messaging.onMessage(function (payload) {
+        console.log('Message received. ', payload);
+      });
+    </script>
+    <!-- Firebase Performance Monitoring -->
+    <script>
+      const perf = firebase.performance();
 
-    function getFCMToken() {
-      return messaging
-        .getToken()
-        .then(function (currentToken) {
-          if (currentToken) {
-            return currentToken;
-          } else {
-            console.log(
-              "No Instance ID token available. Request permission to generate one."
-            );
-            return null;
+      // Measures First Input Delay for Firebase Performance Monitoring
+      // https://github.com/GoogleChromeLabs/first-input-delay/blob/master/dist/first-input-delay.min.js
+      !(function (n, e) {
+        var t,
+          o,
+          i,
+          c = [],
+          f = { passive: !0, capture: !0 },
+          r = new Date(),
+          a = 'pointerup',
+          u = 'pointercancel';
+        function p(n, c) {
+          t || ((t = c), (o = n), (i = new Date()), w(e), s());
+        }
+        function s() {
+          o >= 0 &&
+            o < i - r &&
+            (c.forEach(function (n) {
+              n(o, t);
+            }),
+            (c = []));
+        }
+        function l(t) {
+          if (t.cancelable) {
+            var o =
+              (t.timeStamp > 1e12 ? new Date() : performance.now()) -
+              t.timeStamp;
+            'pointerdown' == t.type
+              ? (function (t, o) {
+                  function i() {
+                    p(t, o), r();
+                  }
+                  function c() {
+                    r();
+                  }
+                  function r() {
+                    e(a, i, f), e(u, c, f);
+                  }
+                  n(a, i, f), n(u, c, f);
+                })(o, t)
+              : p(o, t);
           }
-        })
-        .catch(function (err) {
-          // console.log("An error occurred while retrieving token. ", err);
-        });
-    }
-
-    messaging.onTokenRefresh(function () {
-      messaging
-        .getToken()
-        .then(function (refreshedToken) {
-          console.log("Token refreshed.");
-          if (refreshedToken) {
-            console.log("refreshedToken", refreshedToken);
-          }
-        })
-        .catch(function (err) {
-          console.log("Unable to retrieve refreshed token ", err);
-        });
-    });
-
-    messaging.onMessage(function (payload) {
-      console.log("Message received. ", payload);
-    });
-  </script>
-  <!-- Firebase Performance Monitoring -->
-  <script>
-    const perf = firebase.performance();
-
-    // Measures First Input Delay for Firebase Performance Monitoring
-    // https://github.com/GoogleChromeLabs/first-input-delay/blob/master/dist/first-input-delay.min.js
-    !function (n, e) { var t, o, i, c = [], f = { passive: !0, capture: !0 }, r = new Date, a = 'pointerup', u = 'pointercancel'; function p(n, c) { t || (t = c, o = n, i = new Date, w(e), s()); } function s() { o >= 0 && o < i - r && (c.forEach(function (n) { n(o, t); }), c = []); } function l(t) { if (t.cancelable) { var o = (t.timeStamp > 1e12 ? new Date : performance.now()) - t.timeStamp; 'pointerdown' == t.type ? function (t, o) { function i() { p(t, o), r(); } function c() { r(); } function r() { e(a, i, f), e(u, c, f); } n(a, i, f), n(u, c, f); }(o, t) : p(o, t); } } function w(n) { ['click', 'mousedown', 'keydown', 'touchstart', 'pointerdown'].forEach(function (e) { n(e, l, f); }); } w(n), self.perfMetrics = self.perfMetrics || {}, self.perfMetrics.onFirstInputDelay = function (n) { c.push(n), s(); }; }(addEventListener, removeEventListener);
-    const trace = perf.trace('first_input_delay');
-    perfMetrics.onFirstInputDelay(function (delay, evt) {
-      trace.putAttribute('firstInputDelay', delay.toString());
-    });
-  </script>
-</body>
-
+        }
+        function w(n) {
+          [
+            'click',
+            'mousedown',
+            'keydown',
+            'touchstart',
+            'pointerdown',
+          ].forEach(function (e) {
+            n(e, l, f);
+          });
+        }
+        w(n),
+          (self.perfMetrics = self.perfMetrics || {}),
+          (self.perfMetrics.onFirstInputDelay = function (n) {
+            c.push(n), s();
+          });
+      })(addEventListener, removeEventListener);
+      const trace = perf.trace('first_input_delay');
+      perfMetrics.onFirstInputDelay(function (delay, evt) {
+        trace.putAttribute('firstInputDelay', delay.toString());
+      });
+    </script>
+  </body>
 </html>

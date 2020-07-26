@@ -2,127 +2,154 @@
   "/": {
     "src/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "src/pages/top/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     }
   },
   "/about": {
     "src/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "src/pages/about/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     }
   },
   "/ask": {
     "src/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "src/pages/ask/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     }
   },
   "/jobs": {
     "src/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "src/pages/jobs/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     }
   },
   "/new": {
     "src/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "src/pages/new/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     }
   },
   "/show": {
     "src/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "src/pages/show/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     }
   },
   "/top": {
     "src/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "src/pages/top/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     }
   },
   "/user": {
     "src/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "src/pages/user/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     }
   },
   "/item": {
     "src/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "src/pages/item/index.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     },
     "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
       "type": "script",
-      "weight": 1
+      "weight": 1,
+      "crossorigin": "anonymous"
     }
   }
 }
