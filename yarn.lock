@@ -6529,9 +6529,9 @@ moment@^2.15.1, moment@^2.24.0:
   integrity sha1-Xh+Cxrr8pug+gIswyHBe7Q3L05o=
 
 mout@^1.0.0:
-  version "1.2.2"
-  resolved "http://artifactory.bookmyshow.org/artifactory/api/npm/npm/mout/-/mout-1.2.2.tgz#c9b718a499806a0632cede178e80f436259e777d"
-  integrity sha1-ybcYpJmAagYyzt4XjoD0NiWed30=
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/mout/-/mout-1.2.3.tgz#bd1477d8c7f2db5fcf43c91de30b6cc746b78e10"
+  integrity sha512-vtE+eZcSj/sBkIp6gxB87MznryWP+gHIp0XX9SKrzA5TAkvz6y7VTuNruBjYdJozd8NY5i9XVIsn8cn3SwNjzg==
 
 ms@2.0.0:
   version "2.0.0"
